@@ -1,0 +1,7 @@
+{
+    "routes":{
+        "src":"/falkon-parlor/(.*)",
+        "dest":"/falkon-parlor/index.html",
+        "status":200
+    }
+}
