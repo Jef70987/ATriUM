@@ -1,0 +1,311 @@
+/* BookingAnalysis.css - Updated with unique class names */
+.ba-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    }
+
+    .ba-loading,
+    .ba-no-data {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #8a735b;
+    }
+
+    .ba-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0d5c3;
+    }
+
+    .ba-header h2 {
+    color: #5a3921;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    }
+
+    .ba-header p {
+    color: #8a735b;
+    margin: 0;
+    }
+
+    .ba-filters {
+    background-color: #f9f5f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    }
+
+    .ba-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    }
+
+    .ba-filter-group label {
+    font-weight: 500;
+    color: #5a3921;
+    }
+
+    .ba-time-frame-select {
+    padding: 5px 50px;
+    border: 1px solid #d4b996;
+    border-radius: 6px;
+    background-color: white;
+    color: #5a3921;
+    font-size: 1rem;
+    }
+
+    /* Metrics Grid */
+    .ba-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    }
+
+    .ba-metric-card {
+    background: linear-gradient(135deg, #f8f3eb 0%, #e8dfd1 100%);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #b78d65;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .ba-metric-card h3 {
+    color: #5a3921;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    }
+
+    .ba-metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b78d65;
+    display: block;
+    }
+
+    /* Charts Grid */
+    .ba-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+    }
+
+    .ba-chart-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e0d5c3;
+    }
+
+    .ba-chart-card h3 {
+    color: #5a3921;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    }
+
+    /* Detailed Analysis */
+    .ba-detailed-analysis {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    }
+
+    .ba-detailed-analysis h3 {
+    color: #5a3921;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    }
+
+    .ba-service-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+
+    .ba-table-header,
+    .ba-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    }
+
+    .ba-table-header {
+    background-color: #f9f5f0;
+    font-weight: 600;
+    color: #5a3921;
+    border-bottom: 2px solid #e0d5c3;
+    }
+
+    .ba-table-row {
+    background-color: #f8f3eb;
+    transition: background-color 0.3s ease;
+    }
+
+    .ba-table-row:hover {
+    background-color: #e8dfd1;
+    }
+
+    .ba-service-name {
+    font-weight: 500;
+    color: #5a3921;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+    .ba-charts-grid {
+        grid-template-columns: 1fr;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .ba-container {
+        padding: 15px;
+    }
+    
+    .ba-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .ba-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .ba-metric-card {
+        padding: 20px;
+    }
+    
+    .ba-metric-value {
+        font-size: 1.8rem;
+    }
+    
+    .ba-charts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .ba-chart-card {
+        padding: 20px;
+    }
+    
+    .ba-table-header,
+    .ba-table-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .ba-table-header span:nth-child(3),
+    .ba-table-row span:nth-child(3),
+    .ba-table-header span:nth-child(4),
+    .ba-table-row span:nth-child(4) {
+        text-align: right;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .ba-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ba-filters {
+        padding: 15px;
+    }
+    
+    .ba-filter-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .ba-chart-card {
+        padding: 15px;
+    }
+    
+    .ba-detailed-analysis {
+        padding: 20px;
+    }
+    
+    .ba-table-header,
+    .ba-table-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .ba-table-header span:nth-child(3),
+    .ba-table-row span:nth-child(3),
+    .ba-table-header span:nth-child(4),
+    .ba-table-row span:nth-child(4) {
+        text-align: center;
+    }
+    }
+
+    /* Animation for charts */
+    .ba-chart-card {
+    animation: ba-fadeInUp 0.6s ease;
+    }
+
+    @keyframes ba-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    /* Custom tooltip styling */
+    .ba-recharts-tooltip-wrapper {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #e0d5c3 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    }
+
+    .ba-recharts-tooltip-label {
+    color: #5a3921 !important;
+    font-weight: 600 !important;
+    }
+
+    .ba-recharts-tooltip-item {
+    color: #8a735b !important;
+    }
+
+    /* Ensure Recharts components use our custom styles */
+    .recharts-default-tooltip {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #e0d5c3 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    }
+
+    .recharts-tooltip-label {
+    color: #5a3921 !important;
+    font-weight: 600 !important;
+    }
+
+    .recharts-tooltip-item {
+    color: #8a735b !important;
+    } 

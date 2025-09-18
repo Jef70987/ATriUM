@@ -1,0 +1,120 @@
+.login--mainDisplay {
+    background-color: aliceblue;
+    background-Size: cover;
+    height:100vh;
+    overFlow: hidden;
+    position: relative;
+    width:1195px;
+    border:1px solid transparent;
+    opacity: 0.8;
+    z-Index: 2;
+}
+.login--author{
+    letter-Spacing: 2px;
+    color:black;
+    
+}
+.login--text{
+    margin-Bottom: 1rem;
+    color: blue;
+    font-Weight:bold;
+    text-align: center;
+    justify-content: center;
+    line-Height: 1.0;
+    margin:18px 0;
+    font-Size: small;
+    margin-Top: 50px;
+    text-Shadow: 0 5px 10px #0b0b0b;
+}
+.login--form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    Width: 100%;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    opacity: 9;
+    z-index: 0.2,
+}
+.login--form input{
+    width: 20%;
+    padding: 0.7rem;
+    margin-Bottom: 1rem;
+    border-Radius: 8px; 
+    border:2px solid magenta;
+}
+.login--form button{
+    width: 15%;
+    background: magenta;
+    color: #fff;
+    border: none;
+    border-Radius: 8px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+@media (max-width: 728px) {
+    .login--mainDisplay {
+        background-Image: url('/pic1.jpg');
+        background-Size: cover;
+        height:100vh;
+        overFlow: hidden;
+        position: relative;
+        width:450px;
+        border:1px solid transparent;
+        opacity: 0.8;
+        z-Index: 2;
+        justify-content: center;
+        align-items: center;
+    }
+    .login--author{
+        letter-Spacing: 1px;
+        color:white;
+        width:350px;
+    }
+    .login--text{
+        margin-Bottom: 1rem;
+        color: white;
+        font-Weight:bold;
+        text-Align:left;
+        justify-Content:center;
+        width: 380px;
+        
+    }
+    .login--form{
+        display: flex;
+        flex-direction: column;
+        overFlow: hidden;
+        justify-content: center;
+        align-items: center;
+        Width: 400px;
+        margin: 0;
+        padding: 0rem;
+        background: transparent;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        opacity: 9;
+        z-index: 0.2,
+    }
+    .login--form input{
+        width: 50%;
+        padding: 0.7rem;
+        margin-Bottom: 1rem;
+        border-Radius: 8px; 
+        border:2px solid magenta;
+    }
+    .login--form button{
+        width: 35%;
+        background: magenta;
+        color: #fff;
+        border: none;
+        border-Radius: 8px;
+        cursor: pointer;
+        height: fit-content;
+    }
+    
+}

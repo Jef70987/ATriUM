@@ -1,0 +1,665 @@
+/* FalkonAnalytics.css - Fixed version */
+:root {
+  --primary: #1728ab;
+  --primary-light: #c30ec6;
+  --primary-dark: #c30ec6;
+  --secondary: #F97316;
+  --text: #c30ec6;
+  --text-light: #5a3921;
+  --text-lighter: #9CA3AF;
+  --background: #FFFFFF;
+  --background-alt: #F9FAFB;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  --border: #E5E7EB;
+  --success: #10B981;
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+.falkon-app * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.falkon-app {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.falkon-app a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.falkon-app img {
+  max-width: 100%;
+  display: block;
+}
+
+.falkon-app .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Preloader */
+.falkon-app #preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.45s ease;
+}
+
+.falkon-app #preloader .loader {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-light), transparent 40%);
+  animation: spin 1s linear infinite;
+  box-shadow: 0 6px 18px rgba(126, 34, 206, 0.08);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navigation */
+.falkon-app nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.falkon-app .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.falkon-app .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.falkon-app .logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.falkon-app .brand-text {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.falkon-app .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.falkon-app .nav-links a {
+  color: var(--text-light);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.falkon-app .nav-links a:hover {
+  color: var(--primary);
+}
+
+.falkon-app .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.falkon-app .nav-links a:hover::after {
+  width: 100%;
+}
+
+.falkon-app .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.falkon-app .btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 14px rgba(126, 34, 206, 0.4);
+}
+
+.falkon-app .btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 34, 206, 0.5);
+}
+
+.falkon-app .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-light);
+}
+
+.falkon-app .btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Hero Section */
+.falkon-app .hero {
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.falkon-app .hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .falkon-app .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.falkon-app .hero-text {
+  max-width: 600px;
+}
+
+.falkon-app .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(126, 34, 206, 0.1);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.falkon-app .hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.falkon-app .hero-description {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+
+.falkon-app .hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.falkon-app .hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.falkon-app .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.falkon-app .feature-item i {
+  color: var(--success);
+  font-size: 1.1rem;
+}
+
+.falkon-app .hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.falkon-app .dashboard-mockup {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-10deg);
+  transition: var(--transition);
+}
+
+.falkon-app .dashboard-mockup:hover {
+  transform: perspective(1000px) rotateY(0);
+}
+
+/* Stats Section */
+.falkon-app .stats {
+  padding: 60px 0;
+  background: var(--background-alt);
+}
+
+.falkon-app .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.falkon-app .stat-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.falkon-app .stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.falkon-app .stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.falkon-app .stat-label {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* Features Section */
+.falkon-app .section {
+  padding: 80px 0;
+}
+
+.falkon-app .section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.falkon-app .section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.falkon-app .section-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.falkon-app .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.falkon-app .feature-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.falkon-app .feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.falkon-app .feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.falkon-app .feature-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.falkon-app .feature-description {
+  color: var(--text-light);
+}
+
+/* Testimonials */
+.falkon-app .testimonials {
+  background: var(--background-alt);
+}
+
+.falkon-app .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.falkon-app .testimonial-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.falkon-app .testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.falkon-app .testimonial-content {
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.falkon-app .testimonial-content::before {
+  content: """";
+  font-size: 4rem;
+  color: var(--primary-light);
+  opacity: 0.2;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-family: Georgia, serif;
+}
+
+.falkon-app .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.falkon-app .author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+
+.falkon-app .author-info h4 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.falkon-app .author-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Pricing Section */
+.falkon-app .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.falkon-app .pricing-card {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.falkon-app .pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.falkon-app .pricing-card.popular {
+  border: 2px solid var(--primary-light);
+  transform: scale(1.03);
+}
+
+.falkon-app .pricing-card.popular::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.falkon-app .pricing-header {
+  margin-bottom: 30px;
+}
+
+.falkon-app .pricing-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.falkon-app .pricing-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.falkon-app .pricing-period {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.falkon-app .pricing-features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.falkon-app .pricing-features li {
+  padding: 8px 0;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+}
+
+.falkon-app .pricing-features li:last-child {
+  border-bottom: none;
+}
+
+/* Contact Section */
+.falkon-app .contact {
+  background: var(--background-alt);
+}
+
+.falkon-app .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 992px) {
+  .falkon-app .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.falkon-app .contact-form {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+.falkon-app .form-group {
+  margin-bottom: 20px;
+}
+
+.falkon-app .form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.falkon-app .form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.falkon-app .form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+}
+
+.falkon-app textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Footer */
+.falkon-app footer {
+  background: var(--text);
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.falkon-app .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.falkon-app .footer-brand {
+  margin-bottom: 16px;
+}
+
+.falkon-app .footer-description {
+  color: var(--text-lighter);
+  margin-bottom: 20px;
+}
+
+.falkon-app .footer-heading {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.falkon-app .footer-links {
+  list-style: none;
+}
+
+.falkon-app .footer-links li {
+  margin-bottom: 12px;
+}
+
+.falkon-app .footer-links a {
+  color: var(--text-lighter);
+  transition: var(--transition);
+}
+
+.falkon-app .footer-links a:hover {
+  color: white;
+}
+
+.falkon-app .footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-lighter);
+  font-size: 0.9rem;
+}
+
+/* Animations */
+.falkon-app .fade-in {
+  opacity: 1;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.falkon-app .fade-in .visible {
+  opacity: 2;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .falkon-app .nav-links {
+    display: none;
+  }
+
+  .falkon-app .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .falkon-app .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

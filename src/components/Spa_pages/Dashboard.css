@@ -1,0 +1,563 @@
+.dashboard--body {
+    width: 1200px;
+    font-family: Poppins;
+    margin: 0;
+    font-Size: 12px;
+    overflow: hidden;
+    text-align: justify;
+    
+}
+.dashboard--carousel {
+    width: 1200px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard--list {
+    position: relative;
+    height: 100vh;
+}
+
+.dashboard--item {
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden
+}
+.dashboard--itemImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.dashboard--content {
+    position: absolute;
+    top: 10%;
+    width: 1140px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-Right: 10%;
+    box-Sizing: border-box;
+    color: whitesmoke;
+    text-shadow: 0 5px 10px #0f0e0e;
+    margin-top: 20px;
+    padding:20px;
+    border-radius:5px solid red;
+}
+.dashboard--author {
+    font-Weight: bold;
+    letter-Spacing: 2px;
+    line-height: 0.3em;
+    margin-bottom:15px;
+}
+.dashboard--title {
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.2;
+    text-Shadow: 0 5px 10px #161414;
+    margin-bottom:15px 0;
+}
+.dashboard--topic {
+    font-Weight: bold;
+    font-Size: 5em;
+    line-Height: 1.2;
+    margin:15px 0;
+    color: skyblue;
+    text-Shadow: 0 5px 10px #0b0b0b;
+}
+.dashboard--desc {
+    font-Size: 1.25em;
+    margin-Top: 20px;
+    color: white;
+    width: 800px;
+}
+
+.arrows {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-Width: 30%;
+    gap: 10px;
+    align-Items: center;
+}
+.arrowButton {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-Radius: 50%;
+    background-Color: transparent;
+    border: 2px solid black;
+    font-Family: monospace;
+    color: black;
+    font-Weight: bold;
+    font-Size: large;
+    transition: .2s;
+    z-Index: 100;
+    cursor: pointer;
+    
+}
+.dashboard--prev-button{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-Radius: 50%;
+    background-Color: transparent;
+    border: 2px solid black;
+    font-Family: monospace;
+    color: black;
+    font-Weight: bold;
+    font-Size: large;
+    transition: .2s;
+    z-Index: 100;
+    cursor: pointer;
+    display: none;
+
+}
+
+.arrowButton :hover {
+        border: 4px solid white;
+        color: white;
+}
+
+.dashboard--time{
+    width: 0%;
+    height: 5px;
+    background-Color: rgb(241, 0, 221);
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+.dashboard--NavContainer {
+    display: flex;
+    width: 1000px;
+    height: fit-content;
+    gap:20px;
+    padding:10 20;
+    justify-Content:right;
+}
+
+@media (max-width: 1000px ) {
+    .dashboard--body{
+        max-width: 828px;
+        margin: 0;
+        font-Size: 8px;
+        overflow-x: hidden;
+        justify-content: center;
+    }
+    .dashboard--carousel {
+        width: 1200px;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+    .dashboard--list {
+        position: relative;
+        height: 100vh;
+    }
+
+    .dashboard--item {
+        position: absolute;
+        inset: 0 0 0 0;
+        overflow: hidden
+    }
+    .dashboard--itemImg {
+        width: fit-content;
+        height: 100%;
+        object-fit: cover;
+    }
+    .dashboard--content {
+        position: absolute;
+        top: 10%;
+        width: 1140px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-Right: 10%;
+        box-Sizing: border-box;
+        color: whitesmoke;
+        text-shadow: 0 5px 10px #0f0e0e;
+        margin-top: 20px;
+        padding:20px;
+        border-radius:5px solid red;
+    }
+    .dashboard--author {
+        font-Weight: bold;
+        letter-Spacing: 2px;
+        line-height: 0.3em;
+        margin-bottom:15px;
+        font-size: 1.5em;
+    }
+    .dashboard--title {
+        font-weight: bold;
+        font-size: 5em;
+        line-height: 1.2;
+        text-Shadow: 0 5px 10px #161414;
+        margin-bottom:15px 0;
+    }
+    .dashboard--topic {
+        font-Weight: bold;
+        font-Size: 3.5em;
+        line-Height: 1.0;
+        margin:18px 0;
+        color: skyblue;
+        text-Shadow: 0 5px 10px #0b0b0b;
+        width: 320px;
+    }
+    .dashboard--desc {
+        font-Size: 2.5em;
+        margin-Top: 50px;
+        color: white;
+        width: 350px;
+        text-align: left;
+    }
+    .arrows {
+        position: absolute;
+        top: 80%;
+        right: 52%;
+        width: 300px;
+        max-Width: 30%;
+        gap: 10px;
+        align-Items: left;
+    }
+    .arrowButton {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        
+    }
+    .dashboard--prev-button{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        display: none;
+
+    }
+
+    .arrowButton :hover {
+            border: 4px solid white;
+            color: white;
+    }
+
+    .dashboard--time{
+        width: 0%;
+        height: 5px;
+        background-Color: rgb(241, 0, 221);
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
+    .dashboard--NavContainer {
+        display: flex;
+        width: 530px;
+        height: fit-content;
+        gap:10px;
+        padding:5 15;
+        justify-content: center;
+}
+}
+
+@media (max-width: 728px ) {
+    .dashboard--body{
+        max-width: 428px;
+        margin: 0;
+        font-Size: 8px;
+        overflow-x: hidden;
+        justify-content: center;
+    }
+    .dashboard--carousel {
+        width: 1200px;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+    .dashboard--list {
+        position: relative;
+        height: 100vh;
+    }
+
+    .dashboard--item {
+        position: absolute;
+        inset: 0 0 0 0;
+        overflow: hidden
+    }
+    .dashboard--itemImg {
+        width: fit-content;
+        height: 100%;
+        object-fit: cover;
+    }
+    .dashboard--content {
+        position: absolute;
+        top: 10%;
+        width: 1140px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-Right: 10%;
+        box-Sizing: border-box;
+        color: whitesmoke;
+        text-shadow: 0 5px 10px #0f0e0e;
+        margin-top: 20px;
+        padding:20px;
+        border-radius:5px solid red;
+    }
+    .dashboard--author {
+        font-Weight: bold;
+        letter-Spacing: 2px;
+        line-height: 0.3em;
+        margin-bottom:15px;
+        font-size: 1.5em;
+    }
+    .dashboard--title {
+        font-weight: bold;
+        font-size: 5em;
+        line-height: 1.2;
+        text-Shadow: 0 5px 10px #161414;
+        margin-bottom:15px 0;
+    }
+    .dashboard--topic {
+        font-Weight: bold;
+        font-Size: 3.5em;
+        line-Height: 1.0;
+        margin:18px 0;
+        color: skyblue;
+        text-Shadow: 0 5px 10px #0b0b0b;
+        width: 320px;
+    }
+    .dashboard--desc {
+        font-Size: 2.5em;
+        margin-Top: 50px;
+        color: white;
+        width: 350px;
+        text-align: left;
+    }
+    .arrows {
+        position: absolute;
+        top: 80%;
+        right: 52%;
+        width: 300px;
+        max-Width: 30%;
+        gap: 10px;
+        align-Items: left;
+    }
+    .arrowButton {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        
+    }
+    .dashboard--prev-button{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        display: none;
+
+    }
+
+    .arrowButton :hover {
+            border: 4px solid white;
+            color: white;
+    }
+
+    .dashboard--time{
+        width: 0%;
+        height: 5px;
+        background-Color: rgb(241, 0, 221);
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
+    .dashboard--NavContainer {
+        display: flex;
+        width: 530px;
+        height: fit-content;
+        gap:10px;
+        padding:5 15;
+        justify-content: center;
+}
+
+}
+
+@media (max-width: 428px ) {
+    .dashboard--body{
+        max-width: 415px;
+        margin: 0;
+        font-Size: 8px;
+        overflow-x: hidden;
+        justify-content: center;
+    }
+    .dashboard--carousel {
+        width: 1200px;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+    .dashboard--list {
+        position: relative;
+        height: 100vh;
+    }
+
+    .dashboard--item {
+        position: absolute;
+        inset: 0 0 0 0;
+        overflow: hidden
+    }
+    .dashboard--itemImg {
+        width: fit-content;
+        height: 100%;
+        object-fit: cover;
+    }
+    .dashboard--content {
+        position: absolute;
+        top: 10%;
+        width: 1140px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-Right: 10%;
+        box-Sizing: border-box;
+        color: whitesmoke;
+        text-shadow: 0 5px 10px #0f0e0e;
+        margin-top: 20px;
+        padding:20px;
+        border-radius:5px solid red;
+    }
+    .dashboard--author {
+        font-Weight: bold;
+        letter-Spacing: 2px;
+        line-height: 0.3em;
+        margin-bottom:15px;
+        font-size: 1.5em;
+    }
+    .dashboard--title {
+        font-weight: bold;
+        font-size: 5em;
+        line-height: 1.2;
+        text-Shadow: 0 5px 10px #161414;
+        margin-bottom:15px 0;
+    }
+    .dashboard--topic {
+        font-Weight: bold;
+        font-Size: 3.5em;
+        line-Height: 1.0;
+        margin:18px 0;
+        color: skyblue;
+        text-Shadow: 0 5px 10px #0b0b0b;
+        width: 320px;
+    }
+    .dashboard--desc {
+        font-Size: 2.5em;
+        margin-Top: 50px;
+        color: white;
+        width: 350px;
+        text-align: left;
+    }
+    .arrows {
+        position: absolute;
+        top: 80%;
+        right: 52%;
+        width: 300px;
+        max-Width: 30%;
+        gap: 10px;
+        align-Items: left;
+    }
+    .arrowButton {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        
+    }
+    .dashboard--prev-button{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-Radius: 50%;
+        background-Color: transparent;
+        border: 2px solid black;
+        font-Family: monospace;
+        color: black;
+        font-Weight: bold;
+        font-Size: large;
+        transition: .2s;
+        z-Index: 100;
+        cursor: pointer;
+        display: none;
+
+    }
+
+    .arrowButton :hover {
+            border: 4px solid white;
+            color: white;
+    }
+
+    .dashboard--time{
+        width: 0%;
+        height: 5px;
+        background-Color: rgb(241, 0, 221);
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
+    .dashboard--NavContainer {
+        display: flex;
+        width: 530px;
+        height: fit-content;
+        gap:10px;
+        padding:5 15;
+        justify-content: center;
+}
+}

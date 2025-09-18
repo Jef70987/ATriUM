@@ -1,0 +1,21 @@
+.Navigation--navItem {
+    text-Decoration: none;
+    color:#5a3921;
+    display: flex;
+    flex-Direction: column;
+    align-Items: center;
+    text-Shadow: 0 5px 10px #161414;
+    font-Size:15px;
+}
+
+@media (max-width: 728px) {
+    .Navigation--navItem {
+        text-Decoration: none;
+        color:#5a3921;
+        display: flex;
+        flex-Direction: column;
+        align-Items: center;
+        text-Shadow: 0 5px 10px #161414;
+        font-Size:12px;
+    }
+}
