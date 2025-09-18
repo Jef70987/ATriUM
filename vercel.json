@@ -1,7 +1,7 @@
 {
     "routes":{
-        "src":"/falkon-parlor/(.*)",
-        "dest":"/falkon-parlor/index.html",
+        "src":"/(.*)",
+        "dest":"/index.html",
         "status":200
     }
 }
