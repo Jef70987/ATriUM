@@ -8,7 +8,7 @@ import FalkoNParlour from './components/Landing/LandingPage';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename='/falkon-parlor/'>
+      <BrowserRouter>
         
         <Routes>
           <Route path="/falkon-parlor/" element={<FalkoNParlour />} />
