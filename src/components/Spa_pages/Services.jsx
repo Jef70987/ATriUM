@@ -2,8 +2,8 @@ import { useState ,useEffect} from 'react';
 // import { useParams } from 'react-router-dom';
 import { useSlug } from '../Tenants/Tenant';
 import "./Services.css";
-const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API;
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const BASE_URL = import.meta.env.VITE_BASE_API || 'http://127.0.0.1:8000';
 
 const Services = () => {
   const slug = useSlug(); // Get slug from context

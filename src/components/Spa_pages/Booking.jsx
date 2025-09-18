@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './SpaBooking.css';
 import { useSlug } from '../Tenants/Tenant';
 import { useNavigate } from "react-router-dom";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
 const SpaBooking = () => {
     const slug = useSlug();

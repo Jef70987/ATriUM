@@ -2,8 +2,8 @@
 import { useState, useEffect, useRef } from 'react';
 import './Shop.css';
 import { useParams } from 'react-router-dom';
-const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API;
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const BASE_URL = import.meta.env.VITE_BASE_API || 'http://127.0.0.1:8000';
 
 const Shop = () => {
     const { slug } = useParams();
