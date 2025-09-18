@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         
         <Routes>
-          <Route path="/falkon-parlor/" element={<FalkoNParlour />} />
+          <Route path="/" element={<FalkoNParlour />} />
           <Route path="/falkon-parlor/:slug/*" element={<Tenant />} />
 
           <Route path="/falkon-parlor/:slug/operator/*" element={<TenantOperator />} />
