@@ -309,14 +309,12 @@ const FalkonParlour = () => {
             <div className="pricing-grid">
                 <div className="pricing-card fade-in">
                 <div className="pricing-header">
-                    <h3 className="pricing-title">Essential</h3>
-                    <div className="pricing-price">KSh 1,000</div>
-                    <div className="pricing-period">per month</div>
+                    <h3 className="pricing-title">Free Trial</h3>
+                    <div className="pricing-price">KSh 0.00</div>
+                    <div className="pricing-period">First 7 days</div>
                 </div>
                 <ul className="pricing-features">
-                    <li>Unlimited appointments</li>
-                    <li>Client management</li>
-                    <li>1 staff account</li>
+                    <li>limited features</li>
                 </ul>
                 
                 </div>
@@ -328,11 +326,11 @@ const FalkonParlour = () => {
                     <div className="pricing-period">per month</div>
                 </div>
                 <ul className="pricing-features">
-                    <li>Everything in Essential</li>
-                    <li>No E-commerce integration</li>
-                    <li>Advanced Spa analytics</li>
+                    <li>Client management</li>
+                    <li>Staff management</li>
                     <li>custom theme</li>
-                    <li>3 staff accounts</li>
+                    <li>staff accounts</li>
+                    <li>Review management</li>
                 </ul>
                 
                 </div>
@@ -346,6 +344,7 @@ const FalkonParlour = () => {
                 <ul className="pricing-features">
                     <li>Everything in standard</li>
                     <li>Unlimited staff accounts</li>
+                    <li>Advanced spa Analysis</li>
                     <li>E-commerce integration</li>
                     <li>E-commerce inventory & analytics</li>
                 </ul>
@@ -465,7 +464,7 @@ const FalkonParlour = () => {
                         <i className="fas fa-comment"></i>
                     </div>
                     <div>
-                        <div style={{fontWeight: '600',color:'blue'}}><a href="https://wa.me/254718364879/?text=Hello,%20welcome,%20You%20are%20chatting%20with%20Falkon%20Analytiks%20customer%20assistant" target='_blank'> Chat on WhatsApp</a> </div>
+                        <div style={{fontWeight: '600',color:'blue'}}><a href="https://wa.me/254718364879" target='_blank'> Chat on WhatsApp</a> </div>
                         <div style={{color: '#6B7280'}}></div>
                     </div>
                     </div>
