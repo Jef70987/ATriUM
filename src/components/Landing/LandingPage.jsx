@@ -144,15 +144,15 @@ const FalkonParlour = () => {
                 <div className="hero-features">
                 <div className="feature-item">
                     <i className="fas fa-check-circle"></i>
-                    <span>7-day free trial — no credit card required</span>
+                    <span>✅7-day free trial — no credit card required</span>
                 </div>
                 <div className="feature-item">
                     <i className="fas fa-check-circle"></i>
-                    <span>Built-in online store & inventory management</span>
+                    <span>✅Built-in online store & inventory management</span>
                 </div>
                 <div className="feature-item">
                     <i className="fas fa-check-circle"></i>
-                    <span>Smart appointment scheduling</span>
+                    <span>✅Smart appointment scheduling</span>
                 </div>
                 </div>
             </div>
