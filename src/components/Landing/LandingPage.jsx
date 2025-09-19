@@ -411,7 +411,7 @@ const FalkonParlour = () => {
                         value={formData.plan}
                         onChange={handleInputChange}
                     >
-                        <option>Essential - KSh 1,000/month</option>
+                        <option>free trier - KSh 0.00-7days</option>
                         <option>Standard - KSh 1,500/month</option>
                         <option>Premium - KSh 1,800/month</option>
                     </select>
