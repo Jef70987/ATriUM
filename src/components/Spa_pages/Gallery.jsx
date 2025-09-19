@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useCart } from './CartContext';
 import './Gallery.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
-const BASE_URL = import.meta.env.VITE_BASE_API || 'http://127.0.0.1:8000';
+const API_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_BASE_API;
 
 const ImageGallery = () => {
     const {slug} = useParams(); // Get slug from context

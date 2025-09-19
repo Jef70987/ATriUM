@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './ClientView.css';
 import { useSlug } from '../Tenants/Tenant';
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ClientView = () => {
     const slug = useSlug();

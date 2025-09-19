@@ -197,7 +197,7 @@
   align-items: center;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 792px) {
   .falkon-app .hero-content {
     grid-template-columns: 1fr 1fr;
   }
@@ -538,7 +538,7 @@
   gap: 40px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 792px) {
   .falkon-app .contact-grid {
     grid-template-columns: 1fr 1fr;
   }

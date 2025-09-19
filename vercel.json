@@ -1,0 +1,9 @@
+{
+    "routes":[
+        {
+            "src":"/falkon-parlor/(.*)",
+            "dest":"/index.html",
+            "status":200
+        }
+    ]
+}
