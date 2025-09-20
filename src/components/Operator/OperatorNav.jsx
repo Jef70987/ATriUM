@@ -12,27 +12,27 @@ const OperatorNavData = () => {
     
         {
             title: "Bookings",
-            link: `/falkon-parlor/${slug}/operator/bookings`
+            link: `/${slug}/operator/bookings`
         },
         {
             title: "Add+",
-            link: `/falkon-parlor/${slug}/operator/add`
+            link: `/${slug}/operator/add`
         },
         {
             title: "Staff",
-            link: `/falkon-parlor/${slug}/operator/staff`
+            link: `/${slug}/operator/staff`
         },
         {
             title: "Analysis",
-            link: `/falkon-parlor/${slug}/operator/Analytics`
+            link: `/${slug}/operator/Analytics`
         },
         {
             title: "Inventory",
-            link: `/falkon-parlor/${slug}/operator/inventory`
+            link: `/${slug}/operator/inventory`
         },
         {
             title: "Reviews",
-            link: `/falkon-parlor/${slug}/operator/Reviews`
+            link: `/${slug}/operator/Reviews`
         },
         
     ];

@@ -12,27 +12,27 @@ const NavData = () => {
     
         {
             title: "Home",
-            link: `/falkon-parlor/${slug}/Home`
+            link: `/${slug}/Home`
         },
         {
             title: "Services",
-            link: `/falkon-parlor/${slug}/Services`
+            link: `/${slug}/Services`
         },
         {
             title: "Gallery",
-            link: `/falkon-parlor/${slug}/Gallery`
+            link: `/${slug}/Gallery`
         },
         {
             title: "Booking",
-            link: `/falkon-parlor/${slug}/Booking`
+            link: `/${slug}/Booking`
         },
         {
             title: "Shop",
-            link: `/falkon-parlor/${slug}/Shop`
+            link: `/${slug}/Shop`
         },
         {
             title: "Reviews",
-            link: `/falkon-parlor/${slug}/Reviews`
+            link: `/${slug}/Reviews`
         },
         
     ];
