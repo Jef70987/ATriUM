@@ -59,7 +59,7 @@
 
 @media (max-width: 728px) {
     .login--mainDisplay {
-        background-Image: url('/pic1.jpg');
+        background-color: aliceblue;
         background-Size: cover;
         height:100vh;
         overFlow: hidden;
