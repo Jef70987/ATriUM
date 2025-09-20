@@ -27,7 +27,7 @@ const styles = {
 const LoadingSpinner = ({ small }) => {
     return (
         <div style={styles.container}>
-        <div style={small ? styles.smallSpinner : styles.spinner}>Loading...</div>
+        <div style={small ? styles.smallSpinner : styles.spinner}></div>
         </div>
     );
 };

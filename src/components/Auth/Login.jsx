@@ -46,9 +46,9 @@ export default function Login() {
 
     const redirectBasedOnRole = (role) => {
         if (role == 'CLIENT') {
-            navigate(`/falkon-parlor/${slug}/operator/bookings`);
+            navigate(`/${slug}/operator/bookings`);
         } else if (role == 'ADMIN') {
-            navigate(`/falkon-parlor/${slug}/operator/bookings`);
+            navigate(`/${slug}/operator/bookings`);
         } else {
             return;
         }
