@@ -25,7 +25,7 @@
 @media (max-width: 728px) {
 
     .loading--container {
-        width:100%;
+        width:150%;
         display: flex;
         justify-Content: center;
         align-items: center;
