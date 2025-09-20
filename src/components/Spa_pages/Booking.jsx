@@ -59,7 +59,7 @@ const SpaBooking = () => {
                 setOperatingHours(hoursData);
 
                 // Fetch staff members
-                const staffResponse = await fetch(`http://127.0.0.1:8000/api/${slug}/staff/`);
+                const staffResponse = await fetch(`${API_URL}/${slug}/staff/`);
                 if (!staffResponse.ok) throw new Error('Failed to fetch staff');
                 const staffData = await staffResponse.json();
                 setStaffMembers(staffData);
@@ -91,7 +91,7 @@ const SpaBooking = () => {
     }, [slug]);
 
     const handleBookingView = () => {
-        navigate(`/falkon-parlor/${slug}/ViewBooking`);
+        navigate(`/${slug}/ViewBooking`);
     };
 
     // Fetch available time slots when date is selected
