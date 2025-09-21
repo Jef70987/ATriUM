@@ -3,7 +3,7 @@ import { useState ,useEffect} from 'react';
 import { useSlug } from '../Tenants/Tenant';
 import "./Services.css";
 const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API;
+
 
 const Services = () => {
   const slug = useSlug(); // Get slug from context
@@ -86,7 +86,7 @@ const Services = () => {
             services.map((service) => (
               <div key={service.id} className='serviceCard'>
                 <img 
-                  src={`${BASE_URL}${service.service_img}`} 
+                  src={`${service.service_img}`} 
                   alt={service.name} 
                   className='serviceImage'
                   loading="lazy"

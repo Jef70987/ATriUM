@@ -5,7 +5,7 @@ import {useState,useEffect } from 'react';
 import { useSlug } from '../Tenants/Tenant';
 import { useParams } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API;
+
 
 const Home = () => {
     const slug = useSlug();
@@ -409,7 +409,7 @@ const Home = () => {
             {/* Background Image */}
             <div style={styles.imageColumn}>
                 <img 
-                    src={`${BASE_URL}${HomePic}`}
+                    src={`${HomePic}`}
                     alt="Adasa spa" 
                     style={getStyle(styles.spaImage)}
                 />

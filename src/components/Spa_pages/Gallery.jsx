@@ -5,7 +5,7 @@ import { useCart } from './CartContext';
 import './Gallery.css';
 
 const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API;
+
 
 const ImageGallery = () => {
     const {slug} = useParams(); // Get slug from context
@@ -69,7 +69,7 @@ const ImageGallery = () => {
                 onClick={() => setSelectedImage(image)}
             >
                 <img 
-                src={`${BASE_URL}${image.image}`} 
+                src={`${image.image}`} 
                 alt={image.title} 
                 className='gallery--image'
                 loading="lazy"
@@ -97,7 +97,7 @@ const ImageGallery = () => {
             </button>
             <div className='gallery--modalContent' onClick={(e) => e.stopPropagation()}>
                 <img 
-                src={`${BASE_URL}${selectedImage.image}`} 
+                src={`${selectedImage.image}`} 
                 alt={selectedImage.title} 
                 className='gallery--modalImage'
                 />

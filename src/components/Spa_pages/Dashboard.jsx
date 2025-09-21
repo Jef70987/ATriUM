@@ -82,43 +82,43 @@ const Dashboard = () => {
             setMainItems([
                 {
         
-                img:`${BASE_URL}${Data.dashboard_img1}`,
+                img:`${Data.dashboard_img1}`,
                 title: Data.spa.spa_name,
                 topic: `Welcome to ${Data.spa.spa_name} .`,
                 desc: "We are glad you could visit our site. We are dedicated to providing a sanctuary of relaxation and rejuvenation. Our mission is to help you look and feel your best through luxurious treatments designed to nurture both your body and mind"
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img2}`,
+                img: `${Data.dashboard_img2}`,
                 title: Data.spa.spa_name,
                 topic: "Our Story",
                 desc: `Founded in ${Data.venture_date}, ${Data.spa.spa_name} was born from passion for beauty and wellness. A space was envisioned where clients could escape the stresses of daily life and indulge in self-care. With years of experience in the beauty industry, Our team brings a blend of expertise and creativity to every service we offer.`
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img3}`,
+                img: `${Data.dashboard_img3}`,
                 title: Data.spa.spa_name,
                 topic: "What makes us unique",
                 desc: "We pride ourselves on offering personalized treatments tailored to your individual Needs. Every visit is designed to make you feel valued and renewed while every service is crafted with care. Our parlour features a serene, welcoming environment, designed to provide an unforgettable experience."
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img4}`,
+                img: `${Data.dashboard_img4}`,
                 title: Data.spa.spa_name,
                 topic: "Join our community",
                 desc: "We value every client and are proud to have built a loyal community of individuals who trusts us with their beauty and wellness journey."
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img5}`,
+                img: `${Data.dashboard_img5}`,
                 title: Data.spa.spa_name,
                 topic: "Visit Us Today",
                 desc: `Discover the magic of ${Data.spa.spa_name}. We can't wait to welcome you and help you shine from the inside out. Book your appointment today and take the first step toward rejuvenation.`
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img6}`,
+                img: `${Data.dashboard_img6}`,
                 title: Data.spa.spa_name,
                 topic: "Welcome to our site",
                 desc: "We value your feedback. Explore online and discover what we're all about. From our services to our story, this is your guide to everything we've built with you in mind"
                 },
                 {
-                img: `${BASE_URL}${Data.dashboard_img7}`,
+                img: `${Data.dashboard_img7}`,
                 title: Data.spa.spa_name,
                 topic: "Welcome to our Spa",
                 desc: `${Data.spa.spa_name} is your destination for comfort, care and confidence. Every visit is more than a service, it's an experience crafted to leave you feeling at your best`

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import './Shop.css';
 import { useParams } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API_URL;
-const BASE_URL = import.meta.env.VITE_BASE_API ;
+
 
 const Shop = () => {
     const { slug } = useParams();
@@ -430,7 +430,7 @@ const Shop = () => {
                             filteredProducts.map(product => (
                                 <div key={product.id} className="product-card">
                                     <div className="product-image-container">
-                                        <img src={`${BASE_URL}${product.image}`} alt={product.name} />
+                                        <img src={`${product.image}`} alt={product.name} />
                                         {product.discount > 0 && (
                                             <span className="discount-badge">-{product.discount}%</span>
                                         )}
@@ -492,7 +492,7 @@ const Shop = () => {
                                 ) : (
                                     cart.map(item => (
                                         <div key={item.id} className="shop--cart-item">
-                                            <img src={`${BASE_URL}${item.image}`} alt={item.name} />
+                                            <img src={`${item.image}`} alt={item.name} />
                                             <div className="shop--item-details">
                                                 <h4>{item.name}</h4>
                                                 <p>KSh {parseFloat(item.price).toLocaleString()} each</p>
