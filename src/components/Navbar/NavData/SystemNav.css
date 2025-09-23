@@ -16,7 +16,7 @@
         flex-Direction: column;
         align-Items: center;
         text-Shadow: 0 5px 10px #161414;
-        font-Size:15px;
+        font-Size:13px;
     }
 }
 @media (prefers-color-scheme: dark){
