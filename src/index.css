@@ -78,6 +78,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
   input {
-    background-color: transparent;
+    color: #1a1a1a;
   }
 }
