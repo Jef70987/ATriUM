@@ -594,7 +594,7 @@ const Inventory = () => {
                                         <tr key={product.id}>
                                             <td className="product-cell">
                                                 <img 
-                                                    src={`http://localhost:8000${product.image}`} 
+                                                    src={`${product.image}`} 
                                                     alt={product.name} 
                                                     className="product-thumb"
                                                     onError={(e) => {

@@ -390,6 +390,7 @@ const SpaBooking = () => {
                                 type="date"
                                 id="booking_date"
                                 name="booking_date"
+                                placeholder="select date"
                                 value={formData.booking_date}
                                 onChange={handleInputChange}
                                 min={new Date().toISOString().split('T')[0]}

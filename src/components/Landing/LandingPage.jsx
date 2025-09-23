@@ -144,7 +144,7 @@ const FalkonParlour = () => {
                 <div className="hero-features">
                 <div className="feature-item">
                     <i className="fas fa-check-circle"></i>
-                    <span>✅7-day free trial — no credit card required</span>
+                    <span>✅14-day free trial — no credit card required</span>
                 </div>
                 <div className="feature-item">
                     <i className="fas fa-check-circle"></i>
@@ -311,7 +311,7 @@ const FalkonParlour = () => {
                 <div className="pricing-header">
                     <h3 className="pricing-title">Free Trial</h3>
                     <div className="pricing-price">KSh 0.00</div>
-                    <div className="pricing-period">First 7 days</div>
+                    <div className="pricing-period">First 14 days</div>
                 </div>
                 <ul className="pricing-features">
                     <li>limited features</li>
@@ -411,7 +411,7 @@ const FalkonParlour = () => {
                         value={formData.plan}
                         onChange={handleInputChange}
                     >
-                        <option>free trier - KSh 0.00-7days</option>
+                        <option>free trier - KSh 0.00-14days</option>
                         <option>Standard - KSh 1,500/month</option>
                         <option>Premium - KSh 1,800/month</option>
                     </select>
