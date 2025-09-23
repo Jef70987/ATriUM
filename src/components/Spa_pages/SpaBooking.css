@@ -199,13 +199,10 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
+    background-color: white !important;
+    color: #1a1a1a !important;
 }
-@media (prefers-color-scheme: dark) {
-    .form-group input, .form-group textarea,.form-group select {
-        background-color: white !important;
-        color: #1a1a1a !important;
-    }
-}
+
 
 .time-slots-grid {
     display: grid;
