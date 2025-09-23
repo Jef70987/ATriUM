@@ -20,8 +20,3 @@
         
     }
 }
-@media (prefers-color-scheme: dark){
-    .Navigation--navItem{
-        color: #c3e6cb;
-    }
-}
