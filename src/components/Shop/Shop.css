@@ -837,5 +837,8 @@
         background-color: white;
         color: black;
     }
+    .shop--form-group input::placeholder{
+        color: black;
+    }
 
 }
