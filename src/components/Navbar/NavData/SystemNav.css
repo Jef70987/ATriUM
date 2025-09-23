@@ -16,6 +16,11 @@
         flex-Direction: column;
         align-Items: center;
         text-Shadow: 0 5px 10px #161414;
-        font-Size:12px;
+        font-Size:15px;
+    }
+}
+@media (prefers-color-scheme: dark){
+    .Navigation--navItem{
+        color: #c3e6cb;
     }
 }
