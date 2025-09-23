@@ -833,4 +833,9 @@
     .shop--summary-item{
         color: black;
     }
+    .shop--form-group input{
+        background-color: white;
+        color: black;
+    }
+
 }

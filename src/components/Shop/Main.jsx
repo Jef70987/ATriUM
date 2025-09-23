@@ -408,7 +408,7 @@ const Shop = () => {
                             className="nav-button"
                             onClick={() => setShowMyBookings(true)}
                         >
-                            My Bookings
+                            My Orders
                         </button>
                         <button 
                             className="cart-button" 
