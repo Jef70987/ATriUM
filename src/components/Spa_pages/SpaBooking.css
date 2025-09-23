@@ -420,13 +420,3 @@
         width: 100%;
     }
 }
-@media (prefers-color-scheme: dark){
-    .spa-booking---container{
-        color: #c3e6cb;
-    }
-    .form-group input::placeholder,
-    .form-group select::placeholder,
-    .form-group textarea::placeholder{
-        color: black;
-    }
-}

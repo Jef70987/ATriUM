@@ -829,16 +829,3 @@
         max-width: 95%;
     }
 }
-@media (prefers-color-scheme: dark){
-    .shop--summary-item,.shop--payment-option,.shop--summary-total{
-        color: black;
-    }
-    .shop--form-group input,  .shop--form-group textarea{
-        background-color: white;
-        color: black;
-    }
-    .shop--form-group input::placeholder{
-        color: black;
-    }
-
-}
