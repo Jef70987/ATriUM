@@ -3,7 +3,7 @@ const LoadingSpinner = ({ small }) => {
     return (
         <div className="loading--container">
             <div className= {small ? "loading--spinner" : "loading--smallSpinner"}></div>
-            <p>Please wait...</p>
+            <p>Please wait as we load resources...</p>
         </div>
     );
 };
