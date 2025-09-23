@@ -45,10 +45,4 @@
     *{
         color: #c3e6cb !important;
     }
-
-    input,
-    select,
-    textarea {
-        color: black !important;
-    }
 }
