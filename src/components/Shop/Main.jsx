@@ -556,7 +556,7 @@ const Shop = () => {
                                     &times;
                                 </button>
                             </div>
-                            
+                            {error && <p className="error-message">{error}</p>}
                             <div className="shop--booking-sections">
                                 <div className="shop--booking-section">
                                     <h3>Order Summary</h3>
@@ -604,7 +604,7 @@ const Shop = () => {
                                             </div>
                                         </div>
                                         <div className="shop--form-group">
-                                            <label htmlFor="bf-email">Email (optional)</label>
+                                            <label htmlFor="bf-email">Email </label>
                                             <input
                                                 id="bf-email"
                                                 name="email"
