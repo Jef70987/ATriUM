@@ -41,8 +41,4 @@
   color: #888;
 }
 
-@media (prefers-color-scheme: dark){
-    *{
-        color: #c3e6cb !important;
-    }
-}
+
