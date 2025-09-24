@@ -65,7 +65,7 @@
         height:100vh;
         overFlow: hidden;
         position: relative;
-        width:60%;
+        width:100%;
         border:1px solid transparent;
         opacity: 0.8;
         z-Index: 2;
