@@ -819,7 +819,7 @@ const Inventory = () => {
                             </div>
                             <form onSubmit={handleSubmit} className="product-form">
                                 <div className="form-row">
-                                    <div className="form-group">
+                                    <div className="inventory--form-group">
                                         <label>Product Name *</label>
                                         <input
                                             type="text"
@@ -829,7 +829,7 @@ const Inventory = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="inventory--form-group">
                                         <label>Price (KSh) *</label>
                                         <input
                                             type="number"
@@ -843,7 +843,7 @@ const Inventory = () => {
                                     </div>
                                 </div>
                                 <div className="form-row">
-                                    <div className="form-group">
+                                    <div className="inventory--form-group">
                                         <label>Stock Quantity *</label>
                                         <input
                                             type="number"
@@ -854,7 +854,7 @@ const Inventory = () => {
                                             required
                                         />
                                     </div>
-                                    <div className="form-group">
+                                    <div className="inventory--form-group">
                                         <label>Discount (%)</label>
                                         <input
                                             type="number"
@@ -866,7 +866,7 @@ const Inventory = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="form-group">
+                                <div className="inventory--form-group">
                                     <label>Product Image</label>
                                     <div className="image-upload">
                                         <input

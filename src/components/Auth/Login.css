@@ -26,6 +26,7 @@
     margin-Top: 50px;
     text-Shadow: 0 5px 10px #0b0b0b;
 }
+
 .login--form{
     display: flex;
     flex-direction: column;
@@ -73,12 +74,10 @@
     }
     .login--author{
         letter-Spacing: 1px;
-        color:white;
         width:350px;
     }
     .login--text{
         margin-Bottom: 1rem;
-        color: white;
         font-Weight:bold;
         text-Align:left;
         justify-Content:center;
