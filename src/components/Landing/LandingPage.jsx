@@ -402,7 +402,6 @@ const FalkonParlour = () => {
                         onChange={handleInputChange}
                     />
                     </div>
-                    
                     <div className="form-group">
                     <label htmlFor="plan" className="form-label">Interested Plan</label>
                     <select 

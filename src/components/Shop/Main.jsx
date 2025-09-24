@@ -248,7 +248,7 @@ const Shop = () => {
 
                 setStatusMessage(`
                     <p><strong>Booking confirmed!</strong></p>
-                    <p><strong>Order Code:</strong> ${orderCode} <b>send to your email</b></p>
+                    <p><strong>**Order Code:</strong> ${orderCode} <b> Keep it safe** </b></p>
                     <p><strong>Name:</strong> ${name}</p>
                     <p><strong>Phone:</strong> ${phone}${email ? ` | <strong>Email:</strong> ${email}` : ''}</p>
                     <p><strong>Address:</strong> ${deliveryOption === 'Pick-up' ? 'Pick-up at spa' : address}</p>
