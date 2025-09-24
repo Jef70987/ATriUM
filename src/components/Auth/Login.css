@@ -65,13 +65,13 @@
         height:100vh;
         overFlow: hidden;
         position: relative;
-        width:100%;
+        width:70%;
         border:1px solid transparent;
         opacity: 0.8;
         z-Index: 2;
         justify-content: center;
         align-items: center;
-        margin-top: 20%;
+        margin-top: 20px;
     }
     .login--author{
         letter-Spacing: 1px;
