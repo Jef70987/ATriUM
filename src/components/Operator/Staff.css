@@ -153,24 +153,24 @@
     cursor: pointer;
 }
 
-.form-group {
+.staff--form-group {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.staff--form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input[type="text"] {
+.staff--form-group input[type="text"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-.form-group input[type="checkbox"] {
+.staff--form-group input[type="checkbox"] {
     margin-right: 5px;
 }
 

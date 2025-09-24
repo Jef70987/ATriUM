@@ -384,7 +384,7 @@ const SpaBooking = () => {
                     <div className="booking-step">
                         <h3>Select Date & Time</h3>
                         
-                        <div className="form-group">
+                        <div className="booking--form-group">
                             <label htmlFor="booking_date">Date</label>
                             <input
                                 type="date"
@@ -399,7 +399,7 @@ const SpaBooking = () => {
                         </div>
 
                         {formData.booking_date && (
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="booking_time">Available Time Slots</label>
                                 {availableSlots.length > 0 ? (
                                     <div className="time-slots-grid">
@@ -478,7 +478,7 @@ const SpaBooking = () => {
                         <h3>Your Details</h3>
                         
                         <form className="booking-form" onSubmit={handleSubmit}>
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="client_name">Full Name *</label>
                                 <input
                                     type="text"
@@ -490,7 +490,7 @@ const SpaBooking = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="client_email">Email *</label>
                                 <input
                                     type="email"
@@ -502,7 +502,7 @@ const SpaBooking = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="client_phone">Phone *</label>
                                 <input
                                     type="tel"
@@ -514,7 +514,7 @@ const SpaBooking = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="client_address">Address</label>
                                 <input
                                     type="text"
@@ -525,7 +525,7 @@ const SpaBooking = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="number_of_clients">Number of Clients</label>
                                 <input
                                     type="number"
@@ -537,7 +537,7 @@ const SpaBooking = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="booking--form-group">
                                 <label htmlFor="notes">Special Requests</label>
                                 <textarea
                                     id="notes"

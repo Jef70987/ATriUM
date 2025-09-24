@@ -181,19 +181,19 @@
     padding-top: 12px;
 }
 
-.form-group {
+.booking--form-group {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.booking--form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.booking--form-group input,
+.booking--form-group select,
+.booking--form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;

@@ -199,7 +199,7 @@ const Staff = () => {
                         </div>
 
                         <form onSubmit={handleSubmit}>
-                            <div className="form-group">
+                            <div className="staff--form-group">
                                 <label>Name *</label>
                                 <input
                                     type="text"
@@ -209,7 +209,7 @@ const Staff = () => {
                                 />
                             </div>
 
-                            <div className="form-group">
+                            <div className="staff--form-group">
                                 <label>Specialization</label>
                                 <input
                                     type="text"
@@ -219,7 +219,7 @@ const Staff = () => {
                             </div>
 
                             {editingStaff && (
-                                <div className="form-group">
+                                <div className="staff--form-group">
                                     <label>
                                         <input
                                             type="checkbox"
