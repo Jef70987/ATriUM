@@ -10,6 +10,7 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { setUser } = useContext(AuthContext);
+    const [Data, setMainData] = useState();
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { slug } = useParams(); // Get spa slug from URL
@@ -42,7 +43,21 @@ export default function Login() {
         }
     }, [setUser, navigate, slug]);
 
-    
+    useEffect(() => {
+            
+            const fetchDashboard = async () => {
+                try {
+                    const response = await fetch(`${API_URL}/dashboard/${slug}/items`);    
+                    const data = await response.json();
+                    setMainData(data)
+                } catch (error) {
+                    setError('Failed to fetch products. Please try again later.',error);
+                    
+                }
+                
+            };
+            fetchDashboard();
+        }, []);
 
     const redirectBasedOnRole = (role) => {
         if (role == 'CLIENT') {
@@ -140,6 +155,7 @@ export default function Login() {
             
             <form onSubmit={handleSubmit} className='login--form'>
                 <h3 style={{ textAlign: 'center', color: 'magenta' }}>ATriUM</h3>
+                <h3 style={{ textAlign: 'center', color: 'magenta' }}>{Data.spa.spa_name}</h3>
                 <h4 style={{ textAlign: 'center', color: 'red' }}>Enter Login Credentials</h4>
                 <input
                     required
