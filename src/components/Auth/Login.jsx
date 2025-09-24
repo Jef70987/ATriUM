@@ -137,14 +137,9 @@ export default function Login() {
     return (
         <div className='login--mainDisplay'>
             <div ref={LoginEndRef} />
-            <div className="login--author">
-                &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
-            </div>
-            <p className='login--text'>
-                We value every client and are proud to have built a loyal community of individuals who trusts us
-                with their journey towards beauty.
-            </p>
+            
             <form onSubmit={handleSubmit} className='login--form'>
+                <h3 style={{ textAlign: 'center', color: 'magenta' }}>ATriUM</h3>
                 <h4 style={{ textAlign: 'center', color: 'red' }}>Enter Login Credentials</h4>
                 <input
                     required
@@ -168,6 +163,9 @@ export default function Login() {
                 </button>
                 {error && <p style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</p>}
             </form>
+            <div className="login--author">
+                &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
+            </div>
         </div>
     );
 }
