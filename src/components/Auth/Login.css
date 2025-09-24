@@ -62,10 +62,10 @@
     .login--mainDisplay {
         background-color: aliceblue;
         background-Size: cover;
-        height:70vh;
+        height:100vh;
         overFlow: hidden;
         position: relative;
-        width:70%;
+        width:60%;
         border:1px solid transparent;
         opacity: 0.8;
         z-Index: 2;
