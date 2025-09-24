@@ -162,10 +162,11 @@ export default function Login() {
                     Login
                 </button>
                 {error && <p style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</p>}
+                <div className="login--author">
+                    &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
+                </div>
             </form>
-            <div className="login--author">
-                &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
-            </div>
+            
         </div>
     );
 }
