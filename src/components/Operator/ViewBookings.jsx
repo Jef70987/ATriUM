@@ -138,6 +138,21 @@ const BookingView = () => {
         }
     };
 
+    const token = localStorage.getItem('access_token');
+    const userData = localStorage.getItem('user_data');
+    const user = JSON.parse(userData);
+
+    if(!token && !userData){
+        return(
+                <div >
+                    
+                        <Routes>
+                            <Route path="/" element={<Login/>}/>
+                        </Routes>
+                </div>
+            );
+    }
+
     if (isLoading) {
         return <div className="booking-view-loading">Loading bookings...</div>;
     }
