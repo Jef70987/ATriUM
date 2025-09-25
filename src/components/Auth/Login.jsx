@@ -10,7 +10,7 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { setUser } = useContext(AuthContext);
-    const [Data, setMainData] = useState();
+    // const [Data, setMainData] = useState();
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { slug } = useParams(); // Get spa slug from URL
@@ -22,32 +22,32 @@ export default function Login() {
     }, [username]);
 
     // Check if user is already logged in to this spa
-    useEffect(() => {
-        clearStorage();
-        const token = localStorage.getItem('access_token');
-        const userData = localStorage.getItem('user_data');
+    // useEffect(() => {
+    //     clearStorage();
+    //     const token = localStorage.getItem('access_token');
+    //     const userData = localStorage.getItem('user_data');
         
-        if (token && userData) {
-            try {
-                const user = JSON.parse(userData);
-                // Check if the stored user has access to this spa
-                if (user.spa_slug === slug) {
-                    setUser(user);
-                    redirectBasedOnRole(user.role);
-                }
-            } catch (err) {
-                err;
-                console.error('Error parsing stored user data:');
-                clearStorage();
-            }
-        }
-    }, [setUser, navigate, slug]);
+    //     if (token && userData) {
+    //         try {
+    //             const user = JSON.parse(userData);
+    //             // Check if the stored user has access to this spa
+    //             if (user.spa_slug === slug) {
+    //                 setUser(user);
+    //                 redirectBasedOnRole(user.role);
+    //             }
+    //         } catch (err) {
+    //             err;
+    //             console.error('Error parsing stored user data:');
+    //             clearStorage();
+    //         }
+    //     }
+    // }, [setUser, navigate, slug]);
 
     // useEffect(() => {
             
     //         const fetchDashboard = async () => {
     //             try {
-    //                 const response = await fetch(`${API_URL}/dashboard/${slug}/items`);    
+    //                 const response = await fetch(`${API_URL}/dashboard/${slug}/items`);
     //                 const data = await response.json();
     //                 setMainData(data)
     //             } catch (error) {
@@ -59,6 +59,14 @@ export default function Login() {
     //         fetchDashboard();
     //     }, []);
 
+    const clearStorage = () => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('user_data');
+    };
+
+    clearStorage();
+
     const redirectBasedOnRole = (role) => {
         if (role == 'CLIENT') {
             navigate(`/${slug}/operator/bookings`);
@@ -67,12 +75,6 @@ export default function Login() {
         } else {
             return;
         }
-    };
-
-    const clearStorage = () => {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        localStorage.removeItem('user_data');
     };
 
 
