@@ -13,7 +13,7 @@ import Staff from "./Staff";
 import './Operator.css';
 import BookingAnalysis from "./BookingAnalysis";
 const API_URL = import.meta.env.VITE_API_URL;
-
+import ProtectedRoute from "../Shared/ProtectedRoute";
 
 const Operator = () => {
     const slug = useSlug();
@@ -114,13 +114,13 @@ const Operator = () => {
                             </div>
                         </div>
                     <Routes>
-                        <Route path="/" element={<BookingView/>}/>
-                        <Route path="/bookings" element={<BookingView/>}/>
-                        <Route path="/add" element={<Add/>}/>
-                        <Route path="/Reviews" element={<ReviewsView/>}/>
-                        <Route path="/Analytics" element={<BookingAnalysis/>}/>
-                        <Route path="/inventory" element={<Inventory/>}/>
-                        <Route path="/staff" element={<Staff/>}/>
+                        <Route path="/" element={<ProtectedRoute> <BookingView/> </ProtectedRoute>}/>
+                        <Route path="/bookings" element={<ProtectedRoute> <BookingView/> </ProtectedRoute>}/>
+                        <Route path="/add" element={<ProtectedRoute> <Add/> </ProtectedRoute>}/>
+                        <Route path="/Reviews" element={<ProtectedRoute> <ReviewsView/> </ProtectedRoute>}/>
+                        <Route path="/Analytics" element={ <ProtectedRoute> <BookingAnalysis/> </ProtectedRoute>}/>
+                        <Route path="/inventory" element={ <ProtectedRoute>  <Inventory/> </ProtectedRoute>}/>
+                        <Route path="/staff" element={ <ProtectedRoute> <Staff/> </ProtectedRoute>}/>
                     </Routes>
                 </div>
             </div>
