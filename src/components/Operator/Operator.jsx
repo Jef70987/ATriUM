@@ -114,13 +114,14 @@ const Operator = () => {
                             </div>
                         </div>
                     <Routes>
-                        <Route path="/" element={<ProtectedRoute> <BookingView/> </ProtectedRoute>}/>
-                        <Route path="/bookings" element={<ProtectedRoute> <BookingView/> </ProtectedRoute>}/>
-                        <Route path="/add" element={<ProtectedRoute> <Add/> </ProtectedRoute>}/>
-                        <Route path="/Reviews" element={<ProtectedRoute> <ReviewsView/> </ProtectedRoute>}/>
-                        <Route path="/Analytics" element={ <ProtectedRoute> <BookingAnalysis/> </ProtectedRoute>}/>
-                        <Route path="/inventory" element={ <ProtectedRoute>  <Inventory/> </ProtectedRoute>}/>
-                        <Route path="/staff" element={ <ProtectedRoute> <Staff/> </ProtectedRoute>}/>
+                        <Route path="/" element={<ProtectedRoute slug={slug}> <BookingView/> </ProtectedRoute>}/>
+                        <Route path="/bookings" element={<ProtectedRoute slug={slug}> <BookingView/> </ProtectedRoute>}/>
+                        <Route path="/add" element={<ProtectedRoute slug={slug}> <Add/> </ProtectedRoute>}/>
+                        <Route path="/Reviews" element={<ProtectedRoute slug={slug}> <ReviewsView/> </ProtectedRoute>}/>
+                        <Route path="/Analytics" element={ <ProtectedRoute slug={slug}> <BookingAnalysis/> </ProtectedRoute>}/>
+                        <Route path="/inventory" element={ <ProtectedRoute slug={slug}>  <Inventory/> </ProtectedRoute>}/>
+                        <Route path="/staff" element={ <ProtectedRoute slug={slug}> <Staff/> </ProtectedRoute>}/>
+                        <Route path="/:slug/operator/login" element={<Login/>}/>
                     </Routes>
                 </div>
             </div>
