@@ -8,7 +8,9 @@ const ProtectedRoute = ({ children}) =>{
     const userData = localStorage.getItem('user_data');
 
     if ( !token && !userData){
-        localStorage.removeItem('isAuthenticated') 
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('user_data');
         //redirect to login while remembering where they came from
         return < Navigate to={`/${slug}/operator/`} replace />;
     }
