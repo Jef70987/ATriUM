@@ -14,6 +14,7 @@ function App() {
           <Route path="/:slug/*" element={<Tenant />} />
           <Route path="/:slug/operator/*" element={<TenantOperator />} />
           <Route path="/:slug/staff/*" element={<TenantStaff />} />
+          <Route path='*' element={<FalkoNParlour />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
