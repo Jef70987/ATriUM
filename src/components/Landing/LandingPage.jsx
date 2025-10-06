@@ -108,7 +108,7 @@ const FalkonParlour = () => {
             <div className="container nav-container">
             <div className="brand">
                 <div className="logo">A</div>
-                <div className="brand-text">The ATriUM</div>
+                <div className="brand-text">The ATriUM - Spa management system</div>
             </div>
 
             <div className="nav-links">
