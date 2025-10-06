@@ -138,7 +138,7 @@
     justify-Content:right;
 }
 
-@media (max-width: 1000px ) {
+@media (max-width: 828px ) {
     .dashboard--body{
         max-width: 828px;
         margin: 0;
