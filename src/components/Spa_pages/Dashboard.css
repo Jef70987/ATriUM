@@ -1,5 +1,6 @@
 .dashboard--body {
-    width: 1200px;
+    width: 90 VW;
+    max-width: 1200px;
     font-family: Poppins;
     margin: 0;
     font-Size: 12px;
