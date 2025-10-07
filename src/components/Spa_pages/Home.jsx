@@ -195,6 +195,7 @@ const Home = () => {
     // Inline styles
     const styles = {
         container: {
+            width: '90vw' ,
             maxWidth: '1200px',
             margin: '0 auto',
             padding: '30px 20px',
