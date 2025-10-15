@@ -195,8 +195,8 @@ const Home = () => {
     // Inline styles
     const styles = {
         container: {
-            width: '90vw' ,
-            maxWidth: '1200px',
+            
+            maxWidth: '100vw',
             margin: '0 auto',
             padding: '30px 20px',
             fontFamily: "'Poppins', sans-serif",
