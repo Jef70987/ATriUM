@@ -514,7 +514,7 @@ const FalkonParlour = () => {
             </div>
             
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} SyNapTik. All rights reserved.</p>
             </div>
             </div>
         </footer>
