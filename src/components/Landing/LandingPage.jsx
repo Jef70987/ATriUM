@@ -303,7 +303,7 @@ const FalkonParlour = () => {
             <div className="container">
             <div className="section-header fade-in">
                 <h2 className="section-title">Simple, transparent pricing</h2>
-                <p className="section-subtitle">Start with a 7-day free trial. No credit card required.</p>
+                <p className="section-subtitle">Start with a 14-day free trial. No credit card required.</p>
             </div>
             
             <div className="pricing-grid">
