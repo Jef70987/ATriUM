@@ -454,7 +454,7 @@ const FalkonParlour = () => {
                     </div>
                     <div>
                         <div style={{fontWeight: '600'}}>Call Us</div>
-                        <div style={{color: '#6B7280'}}>+254 718364879</div>
+                        <div style={{color: '#6B7280'}}>+254 750405528</div>
                     </div>
                     </div>
                     
