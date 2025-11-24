@@ -2,62 +2,22 @@
 import { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import './Login.css';
-const API_URL = import.meta.env.VITE_API_URL;
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { setUser } = useContext(AuthContext);
-    // const [Data, setMainData] = useState();
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { slug } = useParams(); // Get spa slug from URL
+    const { slug } = useParams();
 
     const LoginEndRef = useRef(null);
     
     useEffect(() => {
         LoginEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [username]);
-
-    // Check if user is already logged in to this spa
-    // useEffect(() => {
-    //     clearStorage();
-    //     const token = localStorage.getItem('access_token');
-    //     const userData = localStorage.getItem('user_data');
-        
-    //     if (token && userData) {
-    //         try {
-    //             const user = JSON.parse(userData);
-    //             // Check if the stored user has access to this spa
-    //             if (user.spa_slug === slug) {
-    //                 setUser(user);
-    //                 redirectBasedOnRole(user.role);
-    //             }
-    //         } catch (err) {
-    //             err;
-    //             console.error('Error parsing stored user data:');
-    //             clearStorage();
-    //         }
-    //     }
-    // }, [setUser, navigate, slug]);
-
-    // useEffect(() => {
-            
-    //         const fetchDashboard = async () => {
-    //             try {
-    //                 const response = await fetch(`${API_URL}/dashboard/${slug}/items`);
-    //                 const data = await response.json();
-    //                 setMainData(data)
-    //             } catch (error) {
-    //                 setError('Failed to fetch products. Please try again later.',error);
-                    
-    //             }
-                
-    //         };
-    //         fetchDashboard();
-    //     }, []);
 
     const clearStorage = () => {
         localStorage.removeItem('access_token');
@@ -77,7 +37,6 @@ export default function Login() {
         }
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -88,7 +47,6 @@ export default function Login() {
         }
         
         try {
-            // Use multi-tenant login endpoint
             const response = await fetch(`${API_URL}/auth/login/`, {
                 method: 'POST',
                 headers: {
@@ -97,7 +55,7 @@ export default function Login() {
                 body: JSON.stringify({
                     username: username.trim(),
                     password: password.trim(),
-                    spa_slug: slug // Include spa slug in login request
+                    spa_slug: slug
                 }),
             });
 
@@ -116,21 +74,15 @@ export default function Login() {
             }
 
             try {
-            
-                // Verify slug with Django backend
                 const response = await fetch(`${API_URL}/validate/${slug}/`);
                 const spa_data = await response.json();
-                // Check if spa exists from Django response
+                
                 if (spa_data.slug == slug && spa_data.payment_status == "active"  ){
-                    // Store tokens and user data in localStorage
                     localStorage.setItem('access_token', data.access);
                     localStorage.setItem('refresh_token', data.refresh);
                     localStorage.setItem('user_data', JSON.stringify(data.user));
                     
-                    // Update context
                     setUser(data.user);
-                    
-                    // Redirect based on role
                     redirectBasedOnRole(data.user.role);
                 }
                 else if(spa_data.slug == slug && spa_data.payment_status == "inactive" || spa_data.payment_status == "dormant"){
@@ -141,7 +93,6 @@ export default function Login() {
                 }
                 
             } catch (err) {
-                
                 setError('Err100.1:Server error... ',err);
             }
             
@@ -152,39 +103,78 @@ export default function Login() {
     };
 
     return (
-        <div className='login--mainDisplay'>
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 flex items-center justify-center p-4">
             <div ref={LoginEndRef} />
             
-            <form onSubmit={handleSubmit} className='login--form'>
-                <h3 style={{ textAlign: 'center', color: 'magenta' }}>ATriUM</h3>
-                {/* <h3 style={{ textAlign: 'center', color: 'magenta' }}>{Data.spa.spa_name}</h3> */}
-                <h4 style={{ textAlign: 'center', color: 'red' }}>Enter Login Credentials</h4>
-                <input
-                    required
-                    placeholder="Username"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                    
-                />
-                <input
-                    required
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    
-                />
-                <button
-                    type="submit"
-                >
-                    Login
-                </button>
-                {error && <p style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</p>}
-                <div className="login--author">
-                    &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
-                </div>
-            </form>
-            
+            <div className="w-full max-w-md">
+                <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8 space-y-6 border border-pink-100">
+                    {/* Logo/Brand */}
+                    <div className="text-center space-y-2">
+                        <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                            <span className="text-white text-2xl font-bold">A</span>
+                        </div>
+                        <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                            ATriUM
+                        </h3>
+                        <p className="text-gray-600 text-sm">Beauty & Wellness Portal</p>
+                    </div>
+
+                    {/* Header */}
+                    <div className="text-center space-y-2">
+                        <h4 className="text-lg font-semibold text-gray-800">Welcome Back</h4>
+                        <p className="text-sm text-gray-600">Enter your login credentials</p>
+                    </div>
+
+                    {/* Form Fields */}
+                    <div className="space-y-4">
+                        <div>
+                            <input
+                                required
+                                placeholder="Username"
+                                value={username}
+                                onChange={e => setUsername(e.target.value)}
+                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200 outline-none bg-gray-50"
+                            />
+                        </div>
+                        <div>
+                            <input
+                                required
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200 outline-none bg-gray-50"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Login Button */}
+                    <button
+                        type="submit"
+                        className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+                    >
+                        Login
+                    </button>
+
+                    {/* Error Message */}
+                    {error && (
+                        <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
+                            <p className="text-red-600 text-sm text-center font-medium">{error}</p>
+                        </div>
+                    )}
+
+                    {/* Footer */}
+                    <div className="text-center pt-4 border-t border-gray-100">
+                        <p className="text-xs text-gray-500">
+                            &copy; {new Date().getFullYear()} syntelsafe
+                        </p>
+                    </div>
+                </form>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-10 left-10 w-20 h-20 bg-pink-200 rounded-full opacity-20 blur-xl"></div>
+                <div className="absolute bottom-10 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 blur-xl"></div>
+            </div>
         </div>
     );
 }

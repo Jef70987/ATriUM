@@ -6,7 +6,6 @@ import { useSlug } from '../Tenants/Tenant';
 import { useParams } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API_URL;
 
-
 const Home = () => {
     const slug = useSlug();
     const [SpaName, setSpaName] = useState();
@@ -25,62 +24,48 @@ const Home = () => {
         localStorage.removeItem('user_data');
     };
 
-
     const [HomeContact, setHomeContact] = useState({
         address:"Not available...",
         phone:"Not available...",
         email:"Not available ...",
         time:"----"
     });
-    // State for offers and news
-    const [currentOffer, setCurrentOffer] = useState( 
-        {
-            title: "Not available...",
-            description: "Not available...",
-            validUntil: "Not available...",
-        }
-    );
+
+    const [currentOffer, setCurrentOffer] = useState({
+        title: "Not available...",
+        description: "Not available...",
+        validUntil: "Not available...",
+    });
 
     useEffect(() => {
         clearStorage();
 
         const getSpaName = async () => {
-        try {
-            
-            // Verify slug with Django backend
-            const response = await fetch(`${API_URL}/validate/${slug}/`);
-            const data = await response.json();
-            // Check if spa exists from Django response
-            if (data.slug == slug ){
-                setSpaName(data.spa_name)
-            } else {
-                setError('Access error: Contact administrator');
+            try {
+                const response = await fetch(`${API_URL}/validate/${slug}/`);
+                const data = await response.json();
+                if (data.slug == slug ){
+                    setSpaName(data.spa_name)
+                } else {
+                    setError('Access error: Contact administrator');
+                }
+            } catch (err) {
+                setError('Access error: Contact administrator',err);
             }
-            
-        } catch (err) {
-            
-            setError('Access error: Contact administrator',err);
-        } 
         };
 
         getSpaName();
     }, [slug]);
 
-
     useEffect(() => {
         const getSpaTheme = async () => {
-        try {
-            
-            // get theme
-            const response = await fetch(`${API_URL}/theme/${slug}/`);
-            const data = await response.json();
-            
-            setTheme(data.theme_code);
-            
-        } catch (err) {
-            
-            setError('Theme not found',err);
-        } 
+            try {
+                const response = await fetch(`${API_URL}/theme/${slug}/`);
+                const data = await response.json();
+                setTheme(data.theme_code);
+            } catch (err) {
+                setError('Theme not found',err);
+            }
         };
 
         getSpaTheme();
@@ -88,26 +73,18 @@ const Home = () => {
 
     useEffect(() => {
         const fetchHomeData = async (slug) => {
-
-        try {
-            
-            // Verify slug with Django backend
-            const response = await fetch(`${API_URL}/home/${slug}/details`);
-            const data = await response.json();
-            // Check if spa exists from Django response
-            if (data.exists === false) {
+            try {
+                const response = await fetch(`${API_URL}/home/${slug}/details`);
+                const data = await response.json();
+                if (data.exists === false) {
+                    return null;
+                }
+                setHomeData(data.welcome_content);
+                setHomeSlogan(data.slogan)
+                setHomePic(data.start_img );
+            } catch (err) {
                 return null;
             }
-            setHomeData(data.welcome_content);
-            setHomeSlogan(data.slogan)
-            setHomePic(data.start_img );
-
-            
-        } catch (err) {
-            
-            return null;
-        } 
-        
         };
 
         fetchHomeData(slug);
@@ -115,18 +92,14 @@ const Home = () => {
 
     useEffect(() => {
         const fetchHomeContact = async (slug) => {
-        try {
-            
-            // Verify slug with Django backend
-            const response = await fetch(`${API_URL}/home/${slug}/contact`);
-            const data = await response.json();
-            setContact(data);
-            
-        } catch (err) {
-            
-            setError('Access error: Contact administrator',err);
-            return null;
-        }
+            try {
+                const response = await fetch(`${API_URL}/home/${slug}/contact`);
+                const data = await response.json();
+                setContact(data);
+            } catch (err) {
+                setError('Access error: Contact administrator',err);
+                return null;
+            }
         };
 
         fetchHomeContact(slug);
@@ -141,21 +114,17 @@ const Home = () => {
                 time:Contact.time
             });
         }
-
     },[Contact]);
-
 
     useEffect(() => {
         const fetchHomeOffers = async () => {
             try {
-                
-                // Verify slug with Django backend
                 const response = await fetch(`${API_URL}/home/${slug}/offers`);
                 const data = await response.json();
                 setHomeOffers(data);
             } catch (err) {
                 setError('Access error: Contact administrator',err);
-            } 
+            }
         };
 
         fetchHomeOffers();
@@ -171,318 +140,139 @@ const Home = () => {
         }
     },[HomeOffers]);
 
-
-
-
-    // Fetch notification from Django backend
     useEffect(() => {
-        
         const fetchNotification = async () => {
             try {
                 const response = await fetch(`${API_URL}/home/${slug}/notifications`);
                 const result = await response.json();
-                
                 setNews(result);
             } catch (error) {
                 setError('Failed to fetch products. Please try again later.',error);
-                
             }
         };
         fetchNotification();
     }, []);
 
-
-    // Inline styles
-    const styles = {
-        container: {
-            
-            maxWidth: '100vw',
-            margin: '0 auto',
-            padding: '30px 20px',
-            fontFamily: "'Poppins', sans-serif",
-            color: '#333',
-            position: 'relative',
-            overflow: 'hidden'
-        },
-        ColumnLayout: {
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '15px',
-            position: 'relative',
-            zIndex: 1
-        },
-        twoColumnLayout: {
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '15px',
-            position: 'relative',
-            minHeight: '400px'
-        },
-        contentColumn: {
-            display: 'flex',
-            flexDirection: 'column',
-            opacity: 0.8,
-            zIndex: 2,
-            position: 'relative'
-        },
-        welcomeCard: {
-            backgroundColor: 'rgba(249, 245, 240, 0.8)',
-            borderRadius: '12px',
-            padding: '10px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            
-        },
-        welcomeTitle: {
-            fontSize: 'clamp(1.8rem, 4vw, 2.2rem)',
-            fontWeight: '400',
-            color: `${theme}`,
-            marginBottom: '20px',
-            lineHeight: '1.3',
-            textShadow: '0 5px 10px #484747'
-        },
-        welcomeText: {
-            fontSize: '1rem',
-            lineHeight: '1.6',
-            marginBottom: '25px',
-            color: '#555'
-        },
-        hurryText: {
-            backgroundColor: 'transparent',
-            color: 'black',
-            padding: '15px',
-            borderRadius: '8px',
-            fontWeight: '500',
-            textAlign: 'center',
-            margin: '25px 0',
-            textShadow: '0 5px 10px #484747'
-        },
-        contactCard: {
-            backgroundColor: 'rgba(249, 245, 240, 0.8)',
-            borderRadius: '12px',
-            padding: '25px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            backdropFilter: 'blur(2px)',
-            opacity: 0.7,
-            zIndex: 2,
-        },
-        cardTitle: {
-            fontSize: '1.3rem',
-            fontWeight: '600',
-            color:`${theme}`,
-            marginBottom: '20px',
-            borderBottom: '2px solid #d4b996',
-            paddingBottom: '10px',
-            textShadow: '0 5px 10px #484747'
-        },
-        contactItem: {
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: '15px',
-            fontSize: '0.95rem'
-        },
-        contactIcon: {
-            marginRight: '12px',
-            color: '#b78d65',
-            fontSize: '1.2rem'
-        },
-        offersCard: {
-            backgroundColor: 'rgba(249, 245, 240, 0.8)',
-            borderRadius: '12px',
-            padding: '25px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            backdropFilter: 'blur(2px)',
-            opacity: 0.6,
-            zIndex: 2,
-        },
-        offerTitle: {
-            color: "#333",
-            fontWeight: '600',
-            marginBottom: '5px',
-            textShadow: '0 5px 10px #484747'
-        },
-        offerValid: {
-            fontSize: '0.8rem',
-            color: '#888',
-            fontStyle: 'italic',
-            textShadow: '0 5px 10px #484747'
-        },
-        newsCard: {
-            backgroundColor: 'rgba(249, 245, 240, 0.8)',
-            borderRadius: '12px',
-            padding: '25px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            backdropFilter: 'blur(2px)'
-        },
-        newsItem: {
-            marginBottom: '12px',
-            paddingBottom: '12px',
-            borderBottom: '1px dashed #d4b996',
-            ':lastChild': {
-                marginBottom: '0',
-                paddingBottom: '0',
-                borderBottom: 'none'
-            }
-        },
-        imageColumn: {
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            
-            overflow: 'hidden'
-        },
-        spaImage: {
-            width: '100%',
-            height: '90%',
-            objectFit: 'cover',
-            opacity: 0.9,
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            borderLeft: `10px solid ${theme}`,
-            borderTopLeftRadius: '80% 50%',
-            borderBottomLeftRadius: '80% 50%',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-            webkitmaskImage:' linear-gradient(to right, rgb(57, 56, 56) 50%, transparent 100%)',
-            maskImage: 'linear-gradient(to right, rgb(86, 85, 85)50%, transparent 100%)',
-        },
-        imageFade: {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1))',
-            
-        },
-        inforCards: {
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '20px',
-            zIndex: 2,
-            position: 'relative'
-        },
-        
-        // Media queries
-        '@media (min-width: 768px)': {
-            twoColumnLayout: {
-                gridTemplateColumns: '1fr'
-            },
-            inforCards: {
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: 'center'
-            },
-            spaImage: {
-                opacity: 0.8
-            }
-        },
-        '@media (max-width: 767px)': {
-            container: {
-                padding: '15px'
-            },
-            welcomeCard: {
-                padding: '15px'
-            },
-            inforCards: {
-                marginLeft: '0'
-            },
-            spaImage: {
-                opacity: 0.6
-            }
-        }
-    };
-
-    // Helper function for responsive styles
-    const getStyle = (baseStyle) => {
-        const isDesktop = window.innerWidth >= 768;
-        return {
-            ...baseStyle,
-            ...(isDesktop && baseStyle['@media (min-width: 768px)']),
-            ...(!isDesktop && baseStyle['@media (max-width: 767px)'])
-        };
-    };
-
     return (
-        <div style={styles.container}>
-            
-            {/* Background Image */}
-            <div style={styles.imageColumn}>
+        <div className="min-h-screen w-full bg-gradient-to-br from-pink-50 via-white to-purple-50 relative overflow-hidden">
+            {/* Background Image with Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
                 <img 
                     src={`${HomePic}`}
-                    alt="Adasa spa" 
-                    style={getStyle(styles.spaImage)}
+                    alt="Spa background" 
+                    className="w-full h-full object-cover opacity-80"
                 />
-                <div style={getStyle(styles.imageFade)}></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
             </div>
-            
-            <div style={styles.ColumnLayout}>
-                <div style={getStyle(styles.twoColumnLayout)}>
-                    {/* Left Column - Content */}
-                    <div style={styles.contentColumn}>
-                        {/* Welcome Card */}
-                        <div style={styles.welcomeCard}>
-                            <h1 style={styles.welcomeTitle}>
-                            Welcome to {SpaName} - {HomeSlogan}
-                            </h1>
-                            <p style={styles.welcomeText}>
-                                {HomeData}
-                            </p>
-                            
-                            <div style={styles.hurryText}>
+
+            {/* Main Content */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                {/* Welcome Section */}
+                <div className="mb-8 lg:mb-12">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-xl border border-white/20">
+                        <h1 
+                            className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 leading-tight"
+                            style={{ color: theme || '#EC4899' }}
+                        >
+                            Welcome to {SpaName}
+                        </h1>
+                        <h2 className="text-xl lg:text-2xl text-gray-700 mb-4 font-light">
+                            {HomeSlogan}
+                        </h2>
+                        <p className="text-gray-600 text-lg lg:text-xl leading-relaxed mb-6">
+                            {HomeData}
+                        </p>
+                        
+                        {/* Call to Action */}
+                        <div className="bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-200 rounded-xl p-4 lg:p-6 text-center">
+                            <p className="text-lg lg:text-xl font-semibold text-gray-800">
                                 Limited appointments available! Book now to secure your preferred time slot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Info Cards Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {/* Contact Card */}
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                            Contact Us
+                        </h2>
+                        <div className="space-y-4">
+                            <div className="flex items-start space-x-3">
+                                <span className="text-xl text-pink-500 mt-1">📍</span>
+                                <span className="text-gray-700 flex-1">{HomeContact.address}</span>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <span className="text-xl text-pink-500">📞</span>
+                                <span className="text-gray-700">{HomeContact.phone}</span>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <span className="text-xl text-pink-500">✉️</span>
+                                <span className="text-gray-700">{HomeContact.email}</span>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <span className="text-xl text-pink-500">⏰</span>
+                                <span className="text-gray-700">{HomeContact.time}</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div style={getStyle(styles.inforCards)}>
-                    {/* Contact Card */}
-                    <div style={styles.contactCard}>
-                        <h2 style={styles.cardTitle}>Contact Us</h2>
-                        <div style={styles.contactItem}>
-                            <span style={styles.contactIcon}>📍</span>
-                            <span>{HomeContact.address}</span>
-                        </div>
-                        <div style={styles.contactItem}>
-                            <span style={styles.contactIcon}>📞</span>
-                            <span>{HomeContact.phone}</span>
-                        </div>
-                        <div style={styles.contactItem}>
-                            <span style={styles.contactIcon}>✉️</span>
-                            <span>{HomeContact.email}</span>
-                        </div>
-                        <div style={styles.contactItem}>
-                            <span style={styles.contactIcon}>⏰</span>
-                            <span>{HomeContact.time}</span>
-                        </div>
-                    </div>
-                    
                     {/* Offers Card */}
-                    <div style={styles.offersCard}>
-                        <h2 style={styles.cardTitle}>Current Offer</h2>
-                            <h3 style={styles.offerTitle}>{currentOffer.title}</h3>
-                            <p>{currentOffer.description}</p>
-                            <p style={styles.offerValid}>Valid until: {currentOffer.validUntil}</p>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                            Current Offer
+                        </h2>
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-semibold text-gray-800">{currentOffer.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">{currentOffer.description}</p>
+                            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                                <p className="text-sm text-yellow-800 font-medium">
+                                    Valid until: {currentOffer.validUntil}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    
+
                     {/* News Card */}
-                    <div style={styles.newsCard}>
-                        <h2 style={styles.cardTitle}>What's New</h2>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                            What's New
+                        </h2>
+                        <div className="space-y-4">
                             {News.length > 0 ? (
                                 News.map(news => (
-                                    <div key={news.id} style={styles.newsItem}>
-                                        {news.notification}
+                                    <div key={news.id} className="pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                                        <p className="text-gray-700 leading-relaxed">{news.notification}</p>
                                     </div>
                                 ))
-                            ): <p>Oops!! Nothing new..</p>}
+                            ) : (
+                                <div className="text-center py-8">
+                                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span className="text-2xl">📰</span>
+                                    </div>
+                                    <p className="text-gray-500">Nothing new at the moment...</p>
+                                    <p className="text-gray-400 text-sm mt-2">Check back later for updates!</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-200 rounded-full opacity-20 blur-xl"></div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-200 rounded-full opacity-20 blur-xl"></div>
             </div>
+
+            {/* Error Display */}
+            {error && (
+                <div className="fixed top-4 right-4 bg-red-50 border border-red-200 rounded-lg p-4 max-w-sm z-50 shadow-lg">
+                    <p className="text-red-700 text-sm">{error}</p>
+                </div>
+            )}
         </div>
     );
 };
 
 export default Home;
-
