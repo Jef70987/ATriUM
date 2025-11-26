@@ -78,12 +78,12 @@ const ImageGallery = () => {
                                 />
                                 
                                 {/* Image Number Badge */}
-                                <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                                <div className="absolute top-3 left-3 bg-transparent text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                                     {sortedImages.length - index}
                                 </div>
 
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-end">
+                                <div className="absolute inset-0 bg-transparent transition-all duration-300 flex items-end">
                                     <div className="w-full p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                         <h3 className="text-white font-semibold text-lg mb-1 truncate">
                                             {image.caption}
