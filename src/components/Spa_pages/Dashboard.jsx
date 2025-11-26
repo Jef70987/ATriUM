@@ -185,7 +185,7 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 w-full">
+        <div className="min-h-screen bg-transparent w-full">
             {/* Carousel Section */}
             <div className="relative w-full h-screen overflow-hidden" ref={carlRef}>
                 <div className="flex w-full h-full transition-transform duration-500 ease-in-out" ref={listItemRef}>
@@ -201,26 +201,26 @@ const Dashboard = () => {
 
                             {/* Content Overlay */}
                             <div className="relative z-10 h-full flex items-center justify-center">
-                                <div className="text-center text-white px-4 max-w-4xl mx-auto">
+                                <div className="text-center text-white px-4 max-w-4xl mx-auto w-full">
                                     {/* Copyright */}
                                     <div className="absolute top-4 left-4 text-xs text-white opacity-80">
-                                        &copy; {new Date().getFullYear()} FaLKoN AnaLyTiKs
+                                        &copy; {new Date().getFullYear()} syntelsafe
                                     </div>
 
                                     {/* Main Content */}
-                                    <div className="space-y-6">
+                                    <div className="space-y-4 md:space-y-6 lg:space-y-8">
                                         <h1 
-                                            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+                                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
                                             style={{ color: Theme || '#EC4899' }}
                                         >
                                             {item.title}
                                         </h1>
                                         
-                                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 text-white">
+                                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white">
                                             {item.topic}
                                         </h2>
                                         
-                                        <p className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto text-gray-100">
+                                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto text-gray-100 px-2 sm:px-4">
                                             {item.desc}
                                         </p>
                                     </div>
@@ -231,21 +231,21 @@ const Dashboard = () => {
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="absolute bottom-8 right-8 z-20 flex space-x-4">
+                <div className="absolute bottom-8 right-4 sm:right-6 md:right-8 z-20 flex space-x-3 sm:space-x-4">
                     <button 
                         ref={prevRef}
-                        className="w-12 h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
+                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     
                     <button 
                         ref={nextRef}
-                        className="w-12 h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
+                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -263,14 +263,14 @@ const Dashboard = () => {
             </div>
 
             {/* Navigation Section */}
-            <div className="w-full bg-white shadow-lg">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full bg-transparent">
+                <div className="w-full">
                     <NavData />
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="w-full">
+            <div className="w-full bg-transparent">
                 <Routes>
                     <Route path="/" element={<Home />} />
                 </Routes>
