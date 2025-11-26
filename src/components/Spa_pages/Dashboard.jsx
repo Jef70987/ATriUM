@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef } from 'react';
-import { Routes, Route, useParams } from "react-router-dom";
-import Home from "./Home";
-import NavData from "../Navbar/NavData/Navigation";
+import { Routes, Route, useParams, useNavigate } from "react-router-dom";
 import { useSlug } from '../Tenants/Tenant';
 const API_URL = import.meta.env.VITE_API_URL;
 const BASE_URL = import.meta.env.VITE_BASE_API;
@@ -11,6 +9,7 @@ const BASE_URL = import.meta.env.VITE_BASE_API;
 const Dashboard = () => {
     const { slug } = useParams();
     const { tenant } = useSlug();
+    const navigate = useNavigate();
     const [Data, setMainData] = useState();
     const [Theme, setTheme] = useState();
     const [error, setError] = useState('');
@@ -184,6 +183,10 @@ const Dashboard = () => {
         };
     }, []);
 
+    const handleExploreClick = () => {
+        navigate('/Home');
+    };
+
     return (
         <div className="min-h-screen bg-transparent w-full">
             {/* Carousel Section */}
@@ -202,38 +205,36 @@ const Dashboard = () => {
                                 </div>
 
                                 {/* Right Column - Text Content */}
-                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8 bg-white">
-                                    <div className="text-left w-full max-w-lg lg:max-w-xl">
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-6 lg:p-12 bg-gradient-to-br from-white to-gray-50">
+                                    <div className="w-full max-w-2xl">
                                         {/* Copyright */}
-                                        <div className="absolute top-4 right-4 text-xs text-gray-600 opacity-80">
+                                        <div className="absolute top-6 right-6 text-xs text-gray-500 font-light">
                                             &copy; {new Date().getFullYear()} syntelsafe
                                         </div>
 
                                         {/* Main Content */}
-                                        <div className="space-y-4 lg:space-y-6 text-right">
+                                        <div className="space-y-6 lg:space-y-8 text-left">
                                             <h1 
-                                                className="text-2xl lg:text-3xl font-bold"
+                                                className="text-3xl lg:text-5xl font-bold font-serif tracking-tight"
                                                 style={{ color: Theme || '#EC4899' }}
                                             >
                                                 {item.title}
                                             </h1>
                                             
-                                            <h2 className="text-xl lg:text-2xl font-semibold text-gray-800">
+                                            <h2 className="text-xl lg:text-3xl font-semibold text-gray-800 font-sans">
                                                 {item.topic}
                                             </h2>
                                             
-                                            <p className="text-sm lg:text-base leading-relaxed text-gray-600 text-justify">
+                                            <p className="text-base lg:text-lg leading-relaxed text-gray-600 font-light tracking-wide">
                                                 {item.desc}
                                             </p>
 
                                             {/* Explore Button */}
-                                            <div className="pt-4 lg:pt-6">
+                                            <div className="pt-6 lg:pt-8">
                                                 <button 
-                                                    className="px-6 py-3 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 transition-all duration-300 text-sm lg:text-base"
-                                                    onClick={() => {
-                                                        // Add navigation logic here later
-                                                        console.log('Explore button clicked');
-                                                    }}
+                                                    className="px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 text-base lg:text-lg shadow-lg hover:shadow-xl"
+                                                    onClick={handleExploreClick}
+                                                    style={{ backgroundColor: Theme || '#EC4899' }}
                                                 >
                                                     Explore Our Services
                                                 </button>
@@ -247,32 +248,32 @@ const Dashboard = () => {
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="absolute bottom-8 right-4 sm:right-6 md:right-8 z-20 flex space-x-3 sm:space-x-4">
+                <div className="absolute bottom-8 right-6 lg:right-8 z-20 flex space-x-4">
                     <button 
                         ref={prevRef}
-                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-100 transition-all duration-200 border border-gray-300 hover:scale-110 shadow-lg"
+                        className="w-12 h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
                     >
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     
                     <button 
                         ref={nextRef}
-                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-100 transition-all duration-200 border border-gray-300 hover:scale-110 shadow-lg"
+                        className="w-12 h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
                     >
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
 
                 {/* Progress Indicator */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
                     {mainItems.map((_, index) => (
                         <div 
                             key={index}
-                            className="w-2 h-2 bg-gray-600 bg-opacity-50 rounded-full hover:bg-opacity-100 transition-all duration-300"
+                            className="w-3 h-3 bg-white bg-opacity-70 rounded-full hover:bg-opacity-100 transition-all duration-300 border border-gray-300"
                         ></div>
                     ))}
                 </div>
@@ -280,7 +281,7 @@ const Dashboard = () => {
 
             {/* Error Display */}
             {error && (
-                <div className="fixed top-4 right-4 bg-red-50 border border-red-200 rounded-lg p-4 max-w-sm z-50">
+                <div className="fixed top-4 right-4 bg-red-50 border border-red-200 rounded-lg p-4 max-w-sm z-50 shadow-lg">
                     <p className="text-red-700 text-sm">{error}</p>
                 </div>
             )}
