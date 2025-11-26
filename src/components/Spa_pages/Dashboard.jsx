@@ -198,13 +198,11 @@ const Dashboard = () => {
                                     <div 
                                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                                         style={{ backgroundImage: `url(${item.img})` }}
-                                    >
-                                        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                                    </div>
+                                    />
                                 </div>
 
                                 {/* Right Column - Text Content */}
-                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8 bg-white">
                                     <div className="text-left w-full max-w-lg lg:max-w-xl">
                                         {/* Copyright */}
                                         <div className="absolute top-4 right-4 text-xs text-gray-600 opacity-80">
@@ -279,13 +277,6 @@ const Dashboard = () => {
                     ))}
                 </div>
             </div>
-
-            {/* Navigation Section */}
-            {/* <div className="w-full bg-transparent">
-                <div className="w-full">
-                    <NavData />
-                </div>
-            </div> */}
 
             {/* Error Display */}
             {error && (

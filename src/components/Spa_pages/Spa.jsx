@@ -9,11 +9,18 @@ import Home from "./Home";
 import Shop from "../Shop/Main";
 import { CartProvider } from "./CartContext";
 import ClientView from "./ClientBookingView";
+import NavData from "../Navbar/NavData/Navigation";
 
 const Spa = () => {
     return(
         <div className="flex flex-col min-h-screen">
             {/* Main content area */}
+            {/* Navigation Section */}
+            <div className="w-full bg-transparent">
+                <div className="w-full">
+                    <NavData/>
+                </div>
+            </div>
             <div className="main-display flex-1 w-full">
                 <Routes>
                     <Route path="/" element={
