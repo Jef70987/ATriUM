@@ -191,38 +191,57 @@ const Dashboard = () => {
                 <div className="flex w-full h-full transition-transform duration-500 ease-in-out" ref={listItemRef}>
                     {mainItems.map((item, index) => (
                         <div key={index} className="carousel-item w-full h-full flex-shrink-0 relative">
-                            {/* Background Image */}
-                            <div 
-                                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                                style={{ backgroundImage: `url(${item.img})` }}
-                            >
-                                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                            </div>
-
-                            {/* Content Overlay */}
-                            <div className="relative z-10 h-full flex items-center justify-center">
-                                <div className="text-center text-white px-4 max-w-4xl mx-auto w-full">
-                                    {/* Copyright */}
-                                    <div className="absolute top-4 left-4 text-xs text-white opacity-80">
-                                        &copy; {new Date().getFullYear()} syntelsafe
+                            {/* Two Column Layout */}
+                            <div className="flex flex-col lg:flex-row w-full h-full">
+                                {/* Left Column - Background Image */}
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative">
+                                    <div 
+                                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                        style={{ backgroundImage: `url(${item.img})` }}
+                                    >
+                                        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                                     </div>
+                                </div>
 
-                                    {/* Main Content */}
-                                    <div className="space-y-4 md:space-y-6 lg:space-y-8">
-                                        <h1 
-                                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
-                                            style={{ color: Theme || '#EC4899' }}
-                                        >
-                                            {item.title}
-                                        </h1>
-                                        
-                                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white">
-                                            {item.topic}
-                                        </h2>
-                                        
-                                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto text-gray-100 px-2 sm:px-4">
-                                            {item.desc}
-                                        </p>
+                                {/* Right Column - Text Content */}
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8">
+                                    <div className="text-white w-full max-w-2xl">
+                                        {/* Copyright */}
+                                        <div className="absolute top-4 right-4 text-xs text-white opacity-80">
+                                            &copy; {new Date().getFullYear()} syntelsafe
+                                        </div>
+
+                                        {/* Main Content with Black Background */}
+                                        <div className="bg-black bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 space-y-4 lg:space-y-6">
+                                            <h1 
+                                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+                                                style={{ color: Theme || '#EC4899' }}
+                                            >
+                                                {item.title}
+                                            </h1>
+                                            
+                                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
+                                                {item.topic}
+                                            </h2>
+                                            
+                                            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-gray-100">
+                                                {item.desc}
+                                            </p>
+
+                                            {/* Explore Button */}
+                                            <div className="pt-4 lg:pt-6">
+                                                <button 
+                                                    className="px-6 py-3 lg:px-8 lg:py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
+                                                    style={{ backgroundColor: Theme || '#EC4899', color: 'white' }}
+                                                    onClick={() => {
+                                                        // Add navigation logic here later
+                                                        console.log('Explore button clicked');
+                                                    }}
+                                                >
+                                                    Explore Our Services
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
