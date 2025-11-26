@@ -9,7 +9,7 @@ import Home from "./Home";
 import Shop from "../Shop/Main";
 import { CartProvider } from "./CartContext";
 import ClientView from "./ClientBookingView";
-import NavData from "./NavData";
+import NavData from "../Navbar/NavData/Navigation";
 
 // Layout component for pages with navigation
 const WithNavigation = ({ children }) => {
