@@ -16,8 +16,8 @@ const WithNavigation = ({ children }) => {
     return (
         <div className="w-full">
             <div className="w-full bg-transparent">
-                <div className="w-full">
-                    <NavData/>
+                <div className="flex flex-col md:flex-row md:space-x-1 w-full bg-white shadow-sm rounded-lg p-1">
+                    <NavData />
                 </div>
             </div>
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

@@ -3,8 +3,8 @@ import { useSlug } from '../../Tenants/Tenant';
 import { Link } from 'react-router-dom';
 
 const NavData = () => {
-    const { slug } = useSlug();
-
+    const slug = useSlug();
+    
     const NavLink = [
         {
             title: "Home",
@@ -33,35 +33,17 @@ const NavData = () => {
     ];
     
     return (
-        <nav className="bg-white shadow-lg border-b border-gray-200 w-full">
-            <div className="max-w-7xl mx-auto px-4">
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex space-x-1 py-4">
-                    {NavLink.map((item, index) => (
-                        <Link 
-                            key={index} 
-                            to={item.link} 
-                            className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors duration-200 font-medium"
-                        >
-                            <span>{item.title}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                {/* Mobile Navigation */}
-                <div className="md:hidden flex overflow-x-auto py-3 space-x-2">
-                    {NavLink.map((item, index) => (
-                        <Link 
-                            key={index} 
-                            to={item.link} 
-                            className="flex-shrink-0 px-3 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors duration-200 font-medium whitespace-nowrap"
-                        >
-                            <span>{item.title}</span>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </nav>
+        <>
+            {NavLink.slice(0, 6).map((item, index) => (
+                <Link 
+                    key={index} 
+                    to={item.link} 
+                    className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200 md:px-3 md:py-2 md:text-base border-b border-gray-100 last:border-b-0 md:border-none"
+                >
+                    <span>{item.title}</span>
+                </Link>
+            ))}
+        </>
     );
 }
 
