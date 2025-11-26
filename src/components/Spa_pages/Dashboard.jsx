@@ -184,7 +184,7 @@ const Dashboard = () => {
     }, []);
 
     const handleExploreClick = () => {
-        navigate('/Home');
+        navigate(`/${slug}/Home`);
     };
 
     return (
