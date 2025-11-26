@@ -29,40 +29,40 @@ const Services = () => {
   }, [slug]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            Our Services
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">
-            Discover our luxurious treatments designed to pamper and rejuvenate you
-          </p>
+    <div className="min-h-screen bg-transparent w-full">
+      {/* Header */}
+      <div className="text-center py-8 px-4">
+        <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          Our Services
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full"></div>
+        <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">
+          Discover our luxurious treatments designed to pamper and rejuvenate you
+        </p>
+      </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 mx-4 text-center">
+          <p className="text-red-700">{error}</p>
         </div>
+      )}
 
-        {/* Error Message */}
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-8 text-center">
-            <p className="text-red-700">{error}</p>
-          </div>
-        )}
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Services Grid - Full width with transparent background */}
+      <div className="w-full bg-transparent px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4">
           {services.length > 0 ? (
             services.map((service) => (
               <div 
                 key={service.id} 
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:transform hover:-translate-y-2"
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:transform hover:-translate-y-1"
               >
-                {/* Service Image */}
-                <div className="relative overflow-hidden">
+                {/* Service Image Container with Transparent Background */}
+                <div className="relative overflow-hidden bg-transparent">
                   <img 
                     src={service.service_img} 
                     alt={service.name} 
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 bg-transparent"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
@@ -70,7 +70,7 @@ const Services = () => {
 
                 {/* Service Content */}
                 <div className="p-6">
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors duration-300">
                     {service.name}
                   </h3>
                   
@@ -90,7 +90,7 @@ const Services = () => {
               </div>
             ))
           ) : (
-            <div className="col-span-full text-center py-12">
+            <div className="col-span-full text-center py-12 bg-transparent">
               <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl text-gray-400">💆</span>
               </div>
@@ -99,10 +99,6 @@ const Services = () => {
             </div>
           )}
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-pink-200 rounded-full opacity-20 blur-xl -z-10"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-200 rounded-full opacity-20 blur-xl -z-10"></div>
       </div>
     </div>
   );

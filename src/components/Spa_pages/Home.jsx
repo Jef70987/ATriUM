@@ -154,120 +154,128 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#f9f5f0] relative overflow-hidden">
+        <div className="min-h-screen w-full bg-[#f9f5f0]">
             {/* Background Image with Curved Effect */}
-            <div className="absolute inset-0 z-0">
+            <div className="fixed inset-0 z-0">
                 <img 
                     src={`${HomePic}`}
                     alt="Spa background" 
-                    className="w-full h-full object-cover opacity-80 lg:opacity-90"
+                    className="w-full h-full object-cover opacity-20 lg:opacity-25"
                 />
                 {/* Curved overlay for desktop */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent 
-                              lg:bg-gradient-to-r lg:from-white lg:via-white/80 lg:to-transparent
-                              lg:rounded-l-[80%_50%] lg:border-l-4"
-                    style={{ borderLeftColor: theme || '#EC4899' }}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#f9f5f0] via-[#f9f5f0]/95 to-transparent 
+                              lg:bg-gradient-to-r lg:from-[#f9f5f0] lg:via-[#f9f5f0]/90 lg:to-transparent"
                 ></div>
-                {/* Mobile gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/90 lg:hidden"></div>
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-                {/* Welcome Section */}
-                <div className="mb-6 lg:mb-8">
-                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-[#f9f5f0]">
-                        <h1 
-                            className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight text-[#333]"
-                            style={{ color: theme || '#EC4899' }}
-                        >
-                            Welcome to {SpaName} - {HomeSlogan}
-                        </h1>
-                        <p className="text-[#555] text-base lg:text-lg xl:text-xl leading-relaxed mb-6">
-                            {HomeData}
-                        </p>
-                        
-                        {/* Call to Action */}
-                        <div className="bg-transparent text-[#333] p-4 lg:p-6 text-center rounded-xl">
-                            <p className="text-base lg:text-lg xl:text-xl font-medium">
-                                Limited appointments available! Book now to secure your preferred time slot.
+            <div className="relative z-10 w-full">
+                {/* Welcome Section - Full width */}
+                <div className="w-full bg-[#f9f5f0] bg-opacity-90 backdrop-blur-sm py-8 lg:py-12">
+                    <div className="w-full px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-7xl mx-auto">
+                            <h1 
+                                className="text-3xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 leading-tight text-[#333] text-center"
+                                style={{ color: theme || '#EC4899' }}
+                            >
+                                Welcome to {SpaName}
+                            </h1>
+                            <h2 className="text-xl lg:text-2xl xl:text-3xl text-[#555] text-center mb-6 lg:mb-8 font-light">
+                                {HomeSlogan}
+                            </h2>
+                            <p className="text-[#555] text-lg lg:text-xl xl:text-2xl leading-relaxed text-center max-w-6xl mx-auto mb-8">
+                                {HomeData}
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Info Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                    {/* Contact Card */}
-                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
-                        <h2 
-                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
-                            style={{ color: theme || '#EC4899' }}
-                        >
-                            Contact Us
-                        </h2>
-                        <div className="space-y-3 lg:space-y-4">
-                            <div className="flex items-start space-x-3">
-                                <span className="text-lg text-[#b78d65] mt-0.5">📍</span>
-                                <span className="text-[#333] text-sm lg:text-base flex-1">{HomeContact.address}</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <span className="text-lg text-[#b78d65]">📞</span>
-                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.phone}</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <span className="text-lg text-[#b78d65]">✉️</span>
-                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.email}</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <span className="text-lg text-[#b78d65]">⏰</span>
-                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.time}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Offers Card */}
-                    <div className="bg-[#f9f5f0] bg-opacity-60 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
-                        <h2 
-                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
-                            style={{ color: theme || '#EC4899' }}
-                        >
-                            Current Offer
-                        </h2>
-                        <div className="space-y-3 lg:space-y-4">
-                            <h3 className="text-lg lg:text-xl font-semibold text-[#333]">{currentOffer.title}</h3>
-                            <p className="text-[#555] text-sm lg:text-base leading-relaxed">{currentOffer.description}</p>
-                            <div className="bg-[#f9f5f0] border border-[#d4b996] rounded-lg p-3">
-                                <p className="text-xs lg:text-sm text-[#555] font-medium">
-                                    Valid until: {currentOffer.validUntil}
+                            
+                            {/* Call to Action */}
+                            <div className="bg-[#f9f5f0] border-2 border-[#d4b996] rounded-2xl p-6 lg:p-8 text-center max-w-4xl mx-auto">
+                                <p className="text-lg lg:text-xl xl:text-2xl font-semibold text-[#333]">
+                                    Limited appointments available! Book now to secure your preferred time slot.
                                 </p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    {/* News Card */}
-                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
-                        <h2 
-                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
-                            style={{ color: theme || '#EC4899' }}
-                        >
-                            What's New
-                        </h2>
-                        <div className="space-y-3 lg:space-y-4">
-                            {News.length > 0 ? (
-                                News.map(news => (
-                                    <div key={news.id} className="pb-3 border-b border-dashed border-[#d4b996] last:border-b-0 last:pb-0">
-                                        <p className="text-[#333] text-sm lg:text-base leading-relaxed">{news.notification}</p>
+                {/* Info Cards Grid - Full width background */}
+                <div className="w-full bg-[#f9f5f0] bg-opacity-80 py-8 lg:py-12">
+                    <div className="w-full px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                                {/* Contact Card */}
+                                <div className="bg-[#f9f5f0] bg-opacity-90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-[#d4b996] hover:shadow-xl transition-all duration-300">
+                                    <h2 
+                                        className="text-2xl lg:text-3xl font-bold mb-6 pb-4 border-b border-[#d4b996] text-[#333] text-center"
+                                        style={{ color: theme || '#EC4899' }}
+                                    >
+                                        Contact Us
+                                    </h2>
+                                    <div className="space-y-4 lg:space-y-5">
+                                        <div className="flex items-start space-x-4">
+                                            <span className="text-xl text-[#b78d65] mt-1 flex-shrink-0">📍</span>
+                                            <span className="text-[#333] text-base lg:text-lg flex-1">{HomeContact.address}</span>
+                                        </div>
+                                        <div className="flex items-center space-x-4">
+                                            <span className="text-xl text-[#b78d65] flex-shrink-0">📞</span>
+                                            <span className="text-[#333] text-base lg:text-lg">{HomeContact.phone}</span>
+                                        </div>
+                                        <div className="flex items-center space-x-4">
+                                            <span className="text-xl text-[#b78d65] flex-shrink-0">✉️</span>
+                                            <span className="text-[#333] text-base lg:text-lg">{HomeContact.email}</span>
+                                        </div>
+                                        <div className="flex items-center space-x-4">
+                                            <span className="text-xl text-[#b78d65] flex-shrink-0">⏰</span>
+                                            <span className="text-[#333] text-base lg:text-lg">{HomeContact.time}</span>
+                                        </div>
                                     </div>
-                                ))
-                            ) : (
-                                <div className="text-center py-4">
-                                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-[#f9f5f0] rounded-full flex items-center justify-center mx-auto mb-3">
-                                        <span className="text-lg lg:text-2xl text-[#b78d65]">📰</span>
-                                    </div>
-                                    <p className="text-[#555] text-sm lg:text-base">Oops!! Nothing new..</p>
                                 </div>
-                            )}
+
+                                {/* Offers Card */}
+                                <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-[#d4b996] hover:shadow-xl transition-all duration-300">
+                                    <h2 
+                                        className="text-2xl lg:text-3xl font-bold mb-6 pb-4 border-b border-[#d4b996] text-[#333] text-center"
+                                        style={{ color: theme || '#EC4899' }}
+                                    >
+                                        Current Offer
+                                    </h2>
+                                    <div className="space-y-4 lg:space-y-5">
+                                        <h3 className="text-xl lg:text-2xl font-semibold text-[#333] text-center">{currentOffer.title}</h3>
+                                        <p className="text-[#555] text-base lg:text-lg leading-relaxed text-center">{currentOffer.description}</p>
+                                        <div className="bg-[#f9f5f0] border-2 border-[#d4b996] rounded-xl p-4 mt-4">
+                                            <p className="text-sm lg:text-base text-[#555] font-medium text-center">
+                                                Valid until: {currentOffer.validUntil}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* News Card */}
+                                <div className="bg-[#f9f5f0] bg-opacity-90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-[#d4b996] hover:shadow-xl transition-all duration-300">
+                                    <h2 
+                                        className="text-2xl lg:text-3xl font-bold mb-6 pb-4 border-b border-[#d4b996] text-[#333] text-center"
+                                        style={{ color: theme || '#EC4899' }}
+                                    >
+                                        What's New
+                                    </h2>
+                                    <div className="space-y-4 lg:space-y-5">
+                                        {News.length > 0 ? (
+                                            News.map(news => (
+                                                <div key={news.id} className="pb-4 border-b border-dashed border-[#d4b996] last:border-b-0 last:pb-0">
+                                                    <p className="text-[#333] text-base lg:text-lg leading-relaxed">{news.notification}</p>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <div className="text-center py-6">
+                                                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#f9f5f0] rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-[#d4b996]">
+                                                    <span className="text-2xl lg:text-3xl text-[#b78d65]">📰</span>
+                                                </div>
+                                                <p className="text-[#555] text-base lg:text-lg">Stay tuned for updates!</p>
+                                                <p className="text-[#b78d65] text-sm mt-2">Check back later for news</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -40,40 +40,40 @@ const ImageGallery = () => {
     const sortedImages = [...imageData].sort((a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at));
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-8 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-                        Our Gallery
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full mb-4"></div>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Discover the beautiful moments and transformations from our spa
-                    </p>
+        <div className="min-h-screen bg-transparent w-full">
+            {/* Header */}
+            <div className="text-center py-8 px-4">
+                <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+                    Our Gallery
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full mb-4"></div>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Discover the beautiful moments and transformations from our spa
+                </p>
+            </div>
+
+            {/* Error Message */}
+            {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 mx-4 text-center">
+                    <p className="text-red-700">{error}</p>
                 </div>
+            )}
 
-                {/* Error Message */}
-                {error && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-8 text-center max-w-2xl mx-auto">
-                        <p className="text-red-700">{error}</p>
-                    </div>
-                )}
-
-                {/* Gallery Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* Gallery Grid - Full width with transparent background */}
+            <div className="w-full bg-transparent px-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4">
                     {sortedImages.map((image, index) => (
                         <div 
                             key={image.id} 
-                            className="relative group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105"
+                            className="relative group bg-transparent rounded-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105"
                             onClick={() => setSelectedImage(image)}
                         >
-                            {/* Image */}
-                            <div className="relative overflow-hidden">
+                            {/* Image Container with Transparent Background */}
+                            <div className="relative overflow-hidden bg-transparent rounded-xl">
                                 <img 
                                     src={image.image} 
                                     alt={image.title} 
-                                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 bg-transparent"
                                     loading="lazy"
                                 />
                                 
@@ -123,18 +123,18 @@ const ImageGallery = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Empty State */}
-                {sortedImages.length === 0 && !error && (
-                    <div className="text-center py-16">
-                        <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span className="text-3xl text-gray-400">📷</span>
-                        </div>
-                        <p className="text-gray-500 text-lg">No images available in the gallery</p>
-                        <p className="text-gray-400 text-sm mt-2">Check back later for updates</p>
-                    </div>
-                )}
             </div>
+
+            {/* Empty State */}
+            {sortedImages.length === 0 && !error && (
+                <div className="text-center py-16 bg-transparent">
+                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-3xl text-gray-400">📷</span>
+                    </div>
+                    <p className="text-gray-500 text-lg">No images available in the gallery</p>
+                    <p className="text-gray-400 text-sm mt-2">Check back later for updates</p>
+                </div>
+            )}
 
             {/* Modal */}
             {selectedImage && (
@@ -153,13 +153,13 @@ const ImageGallery = () => {
                     </button>
                     
                     <div 
-                        className="relative max-w-4xl max-h-full w-full"
+                        className="relative max-w-4xl max-h-full w-full bg-transparent"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <img 
                             src={selectedImage.image} 
                             alt={selectedImage.title} 
-                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg bg-transparent"
                         />
                         
                         <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-b-lg p-6 mt-2">
@@ -190,10 +190,6 @@ const ImageGallery = () => {
                     </div>
                 </div>
             )}
-
-            {/* Decorative Elements */}
-            <div className="fixed top-20 left-4 w-32 h-32 bg-pink-200 rounded-full opacity-20 blur-xl -z-10"></div>
-            <div className="fixed bottom-20 right-4 w-40 h-40 bg-purple-200 rounded-full opacity-20 blur-xl -z-10"></div>
         </div>
     );
 };
