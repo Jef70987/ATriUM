@@ -1,10 +1,10 @@
 const LoadingSpinner = ({ small }) => {
     return (
         <div className="flex flex-col items-center justify-center p-8 space-y-4">
-            {/* Pulse animation spinner */}
+            {/* Rotating spinner */}
             <div className={`
-                rounded-full bg-gradient-to-r from-pink-400 to-purple-500 animate-pulse
-                ${small ? "w-8 h-8" : "w-16 h-16"}
+                border-4 border-gray-200 border-t-pink-500 rounded-full animate-spin
+                ${small ? "w-8 h-8 border-2" : "w-16 h-16 border-4"}
             `}></div>
             
             {/* Loading text */}

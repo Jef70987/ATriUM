@@ -188,13 +188,13 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-transparent w-full">
-            {/* Carousel Section */}
-            <div className="relative w-full h-screen overflow-hidden" ref={carlRef}>
+        <div className="h-screen w-full bg-transparent overflow-hidden">
+            {/* Carousel Section - Full Screen */}
+            <div className="relative w-full h-full overflow-hidden" ref={carlRef}>
                 <div className="flex w-full h-full transition-transform duration-500 ease-in-out" ref={listItemRef}>
                     {mainItems.map((item, index) => (
                         <div key={index} className="carousel-item w-full h-full flex-shrink-0">
-                            {/* Flex container for two columns */}
+                            {/* Flex container for two columns - Full height */}
                             <div className="flex flex-col lg:flex-row w-full h-full">
                                 {/* Left Column - Background Image */}
                                 <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative">
@@ -205,34 +205,34 @@ const Dashboard = () => {
                                 </div>
 
                                 {/* Right Column - Text Content */}
-                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-6 lg:p-12 bg-gradient-to-br from-white to-gray-50">
-                                    <div className="w-full max-w-2xl">
-                                        {/* Copyright */}
-                                        <div className="absolute top-6 right-6 text-xs text-gray-500 font-light">
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 sm:p-6 lg:p-8 xl:p-12 bg-gradient-to-br from-white to-gray-50 overflow-y-auto">
+                                    <div className="w-full max-w-2xl h-full flex flex-col justify-center relative py-4">
+                                        {/* Copyright - Mobile optimized */}
+                                        <div className="absolute top-2 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 text-xs text-gray-500 font-light">
                                             &copy; {new Date().getFullYear()} syntelsafe
                                         </div>
 
-                                        {/* Main Content */}
-                                        <div className="space-y-6 lg:space-y-8 text-left">
+                                        {/* Main Content - Mobile optimized spacing */}
+                                        <div className="space-y-3 sm:space-y-4 lg:space-y-6 xl:space-y-8 text-left">
                                             <h1 
-                                                className="text-3xl lg:text-5xl font-bold font-serif tracking-tight"
+                                                className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold font-serif tracking-tight leading-tight"
                                                 style={{ color: Theme || '#EC4899' }}
                                             >
                                                 {item.title}
                                             </h1>
                                             
-                                            <h2 className="text-xl lg:text-3xl font-semibold text-gray-800 font-sans">
+                                            <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-800 font-sans leading-snug">
                                                 {item.topic}
                                             </h2>
                                             
-                                            <p className="text-base lg:text-lg leading-relaxed text-gray-600 font-light tracking-wide">
+                                            <p className="text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed text-gray-600 font-light tracking-wide">
                                                 {item.desc}
                                             </p>
 
-                                            {/* Explore Button */}
-                                            <div className="pt-6 lg:pt-8">
+                                            {/* Explore Button - Mobile optimized */}
+                                            <div className="pt-3 sm:pt-4 lg:pt-6 xl:pt-8">
                                                 <button 
-                                                    className="px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 text-base lg:text-lg shadow-lg hover:shadow-xl"
+                                                    className="w-full sm:w-auto px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm lg:text-base xl:text-lg shadow-lg hover:shadow-xl"
                                                     onClick={handleExploreClick}
                                                     style={{ backgroundColor: Theme || '#EC4899' }}
                                                 >
@@ -247,36 +247,28 @@ const Dashboard = () => {
                     ))}
                 </div>
 
-                {/* Navigation Arrows */}
-                <div className="absolute bottom-8 right-6 lg:right-8 z-20 flex space-x-4">
+                {/* Navigation Arrows - Mobile optimized */}
+                <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-8 lg:right-8 z-20 flex space-x-2 sm:space-x-3 lg:space-x-4">
                     <button 
                         ref={prevRef}
-                        className="w-12 h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
+                        className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     
                     <button 
                         ref={nextRef}
-                        className="w-12 h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
+                        className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all duration-300 border border-gray-200 hover:scale-110 shadow-lg hover:shadow-xl"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
 
-                {/* Progress Indicator */}
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
-                    {mainItems.map((_, index) => (
-                        <div 
-                            key={index}
-                            className="w-3 h-3 bg-white bg-opacity-70 rounded-full hover:bg-opacity-100 transition-all duration-300 border border-gray-300"
-                        ></div>
-                    ))}
-                </div>
+                {/* Progress Indicator - REMOVED as requested */}
             </div>
 
             {/* Error Display */}
