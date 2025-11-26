@@ -9,58 +9,37 @@ import Home from "./Home";
 import Shop from "../Shop/Main";
 import { CartProvider } from "./CartContext";
 import ClientView from "./ClientBookingView";
+import NavData from "./NavData";
 
+// Layout component for pages with navigation
+const WithNavigation = ({ children }) => {
+    return (
+        <div className="w-full">
+            <div className="w-full bg-transparent">
+                <div className="w-full">
+                    <NavData/>
+                </div>
+            </div>
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                {children}
+            </div>
+        </div>
+    );
+};
 
 const Spa = () => {
     return(
         <div className="flex flex-col min-h-screen">
-            
             <div className="main-display flex-1 w-full">
                 <Routes>
-                    <Route path="/" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <Dashboard/>
-                        </div>
-                    }/>
-                    <Route path="/Home" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <Home/>
-                        </div>
-                    }/>
-                    <Route path="/Services" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <Services/>
-                        </div>
-                    }/>
-                    <Route path="/Gallery" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <CartProvider>
-                                <ImageGallery/>
-                            </CartProvider>
-                        </div>
-                    }/>
-                    <Route path="/Booking" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <CartProvider>
-                                <SpaBooking/>
-                            </CartProvider>
-                        </div>
-                    }/>
-                    <Route path="/ViewBooking" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <ClientView/>
-                        </div>
-                    }/>
-                    <Route path="/Reviews" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <Reviews/>
-                        </div>
-                    }/>
-                    <Route path="/Shop" element={
-                        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                            <Shop/>
-                        </div>
-                    }/>
+                    <Route path="/" element={<Dashboard/>}/>
+                    <Route path="/Home" element={<WithNavigation><Home/></WithNavigation>}/>
+                    <Route path="/Services" element={<WithNavigation><Services/></WithNavigation>}/>
+                    <Route path="/Gallery" element={<WithNavigation><CartProvider><ImageGallery/></CartProvider></WithNavigation>}/>
+                    <Route path="/Booking" element={<WithNavigation><CartProvider><SpaBooking/></CartProvider></WithNavigation>}/>
+                    <Route path="/ViewBooking" element={<WithNavigation><ClientView/></WithNavigation>}/>
+                    <Route path="/Reviews" element={<WithNavigation><Reviews/></WithNavigation>}/>
+                    <Route path="/Shop" element={<WithNavigation><Shop/></WithNavigation>}/>
                 </Routes>
             </div>
         </div>
