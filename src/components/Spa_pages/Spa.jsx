@@ -14,7 +14,7 @@ import ClientView from "./ClientBookingView";
 const Spa = () => {
     return(
         <div className="flex flex-col min-h-screen">
-        
+            
             <div className="main-display flex-1 w-full">
                 <Routes>
                     <Route path="/" element={
