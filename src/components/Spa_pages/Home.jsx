@@ -154,38 +154,42 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-gradient-to-br from-pink-50 via-white to-purple-50 relative overflow-hidden">
-            {/* Background Image with Gradient Overlay */}
+        <div className="min-h-screen w-full bg-[#f9f5f0] relative overflow-hidden">
+            {/* Background Image with Curved Effect */}
             <div className="absolute inset-0 z-0">
                 <img 
                     src={`${HomePic}`}
                     alt="Spa background" 
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-80 lg:opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+                {/* Curved overlay for desktop */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent 
+                              lg:bg-gradient-to-r lg:from-white lg:via-white/80 lg:to-transparent
+                              lg:rounded-l-[80%_50%] lg:border-l-4"
+                    style={{ borderLeftColor: theme || '#EC4899' }}
+                ></div>
+                {/* Mobile gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/90 lg:hidden"></div>
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
                 {/* Welcome Section */}
-                <div className="mb-8 lg:mb-12">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-xl border border-white/20">
+                <div className="mb-6 lg:mb-8">
+                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-lg border border-[#f9f5f0]">
                         <h1 
-                            className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 leading-tight"
+                            className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight text-[#333]"
                             style={{ color: theme || '#EC4899' }}
                         >
-                            Welcome to {SpaName}
+                            Welcome to {SpaName} - {HomeSlogan}
                         </h1>
-                        <h2 className="text-xl lg:text-2xl text-gray-700 mb-4 font-light">
-                            {HomeSlogan}
-                        </h2>
-                        <p className="text-gray-600 text-lg lg:text-xl leading-relaxed mb-6">
+                        <p className="text-[#555] text-base lg:text-lg xl:text-xl leading-relaxed mb-6">
                             {HomeData}
                         </p>
                         
                         {/* Call to Action */}
-                        <div className="bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-200 rounded-xl p-4 lg:p-6 text-center">
-                            <p className="text-lg lg:text-xl font-semibold text-gray-800">
+                        <div className="bg-transparent text-[#333] p-4 lg:p-6 text-center rounded-xl">
+                            <p className="text-base lg:text-lg xl:text-xl font-medium">
                                 Limited appointments available! Book now to secure your preferred time slot.
                             </p>
                         </div>
@@ -193,42 +197,48 @@ const Home = () => {
                 </div>
 
                 {/* Info Cards Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                     {/* Contact Card */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
+                        <h2 
+                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
+                            style={{ color: theme || '#EC4899' }}
+                        >
                             Contact Us
                         </h2>
-                        <div className="space-y-4">
+                        <div className="space-y-3 lg:space-y-4">
                             <div className="flex items-start space-x-3">
-                                <span className="text-xl text-pink-500 mt-1">📍</span>
-                                <span className="text-gray-700 flex-1">{HomeContact.address}</span>
+                                <span className="text-lg text-[#b78d65] mt-0.5">📍</span>
+                                <span className="text-[#333] text-sm lg:text-base flex-1">{HomeContact.address}</span>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <span className="text-xl text-pink-500">📞</span>
-                                <span className="text-gray-700">{HomeContact.phone}</span>
+                                <span className="text-lg text-[#b78d65]">📞</span>
+                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.phone}</span>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <span className="text-xl text-pink-500">✉️</span>
-                                <span className="text-gray-700">{HomeContact.email}</span>
+                                <span className="text-lg text-[#b78d65]">✉️</span>
+                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.email}</span>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <span className="text-xl text-pink-500">⏰</span>
-                                <span className="text-gray-700">{HomeContact.time}</span>
+                                <span className="text-lg text-[#b78d65]">⏰</span>
+                                <span className="text-[#333] text-sm lg:text-base">{HomeContact.time}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Offers Card */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                    <div className="bg-[#f9f5f0] bg-opacity-60 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
+                        <h2 
+                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
+                            style={{ color: theme || '#EC4899' }}
+                        >
                             Current Offer
                         </h2>
-                        <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-gray-800">{currentOffer.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{currentOffer.description}</p>
-                            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                                <p className="text-sm text-yellow-800 font-medium">
+                        <div className="space-y-3 lg:space-y-4">
+                            <h3 className="text-lg lg:text-xl font-semibold text-[#333]">{currentOffer.title}</h3>
+                            <p className="text-[#555] text-sm lg:text-base leading-relaxed">{currentOffer.description}</p>
+                            <div className="bg-[#f9f5f0] border border-[#d4b996] rounded-lg p-3">
+                                <p className="text-xs lg:text-sm text-[#555] font-medium">
                                     Valid until: {currentOffer.validUntil}
                                 </p>
                             </div>
@@ -236,39 +246,37 @@ const Home = () => {
                     </div>
 
                     {/* News Card */}
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
-                        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-gray-200" style={{ color: theme || '#EC4899' }}>
+                    <div className="bg-[#f9f5f0] bg-opacity-80 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-lg border border-[#f9f5f0] hover:shadow-xl transition-all duration-300">
+                        <h2 
+                            className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 pb-3 border-b border-[#d4b996] text-[#333]"
+                            style={{ color: theme || '#EC4899' }}
+                        >
                             What's New
                         </h2>
-                        <div className="space-y-4">
+                        <div className="space-y-3 lg:space-y-4">
                             {News.length > 0 ? (
                                 News.map(news => (
-                                    <div key={news.id} className="pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
-                                        <p className="text-gray-700 leading-relaxed">{news.notification}</p>
+                                    <div key={news.id} className="pb-3 border-b border-dashed border-[#d4b996] last:border-b-0 last:pb-0">
+                                        <p className="text-[#333] text-sm lg:text-base leading-relaxed">{news.notification}</p>
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center py-8">
-                                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <span className="text-2xl">📰</span>
+                                <div className="text-center py-4">
+                                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-[#f9f5f0] rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <span className="text-lg lg:text-2xl text-[#b78d65]">📰</span>
                                     </div>
-                                    <p className="text-gray-500">Nothing new at the moment...</p>
-                                    <p className="text-gray-400 text-sm mt-2">Check back later for updates!</p>
+                                    <p className="text-[#555] text-sm lg:text-base">Oops!! Nothing new..</p>
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-200 rounded-full opacity-20 blur-xl"></div>
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-200 rounded-full opacity-20 blur-xl"></div>
             </div>
 
             {/* Error Display */}
             {error && (
-                <div className="fixed top-4 right-4 bg-red-50 border border-red-200 rounded-lg p-4 max-w-sm z-50 shadow-lg">
-                    <p className="text-red-700 text-sm">{error}</p>
+                <div className="fixed top-4 right-4 bg-white border border-gray-200 rounded-lg p-4 max-w-sm z-50 shadow-lg">
+                    <p className="text-red-600 text-sm">{error}</p>
                 </div>
             )}
         </div>
