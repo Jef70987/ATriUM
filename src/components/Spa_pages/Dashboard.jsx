@@ -281,18 +281,11 @@ const Dashboard = () => {
             </div>
 
             {/* Navigation Section */}
-            <div className="w-full bg-transparent">
+            {/* <div className="w-full bg-transparent">
                 <div className="w-full">
                     <NavData />
                 </div>
-            </div>
-
-            {/* Main Content */}
-            <div className="w-full bg-transparent">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </div>
+            </div> */}
 
             {/* Error Display */}
             {error && (
