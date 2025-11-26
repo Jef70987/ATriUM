@@ -190,8 +190,8 @@ const Dashboard = () => {
             <div className="relative w-full h-screen overflow-hidden" ref={carlRef}>
                 <div className="flex w-full h-full transition-transform duration-500 ease-in-out" ref={listItemRef}>
                     {mainItems.map((item, index) => (
-                        <div key={index} className="carousel-item w-full h-full flex-shrink-0 relative">
-                            {/* Two Column Layout */}
+                        <div key={index} className="carousel-item w-full h-full flex-shrink-0">
+                            {/* Flex container for two columns */}
                             <div className="flex flex-col lg:flex-row w-full h-full">
                                 {/* Left Column - Background Image */}
                                 <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative">
@@ -199,40 +199,39 @@ const Dashboard = () => {
                                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                                         style={{ backgroundImage: `url(${item.img})` }}
                                     >
-                                        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                                        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
                                     </div>
                                 </div>
 
                                 {/* Right Column - Text Content */}
-                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8">
-                                    <div className="text-white w-full max-w-2xl">
+                                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
+                                    <div className="text-left w-full max-w-lg lg:max-w-xl">
                                         {/* Copyright */}
-                                        <div className="absolute top-4 right-4 text-xs text-white opacity-80">
+                                        <div className="absolute top-4 right-4 text-xs text-gray-600 opacity-80">
                                             &copy; {new Date().getFullYear()} syntelsafe
                                         </div>
 
-                                        {/* Main Content with Black Background */}
-                                        <div className="bg-black bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 space-y-4 lg:space-y-6">
+                                        {/* Main Content */}
+                                        <div className="space-y-4 lg:space-y-6 text-right">
                                             <h1 
-                                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+                                                className="text-2xl lg:text-3xl font-bold"
                                                 style={{ color: Theme || '#EC4899' }}
                                             >
                                                 {item.title}
                                             </h1>
                                             
-                                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
+                                            <h2 className="text-xl lg:text-2xl font-semibold text-gray-800">
                                                 {item.topic}
                                             </h2>
                                             
-                                            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-gray-100">
+                                            <p className="text-sm lg:text-base leading-relaxed text-gray-600 text-justify">
                                                 {item.desc}
                                             </p>
 
                                             {/* Explore Button */}
                                             <div className="pt-4 lg:pt-6">
                                                 <button 
-                                                    className="px-6 py-3 lg:px-8 lg:py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
-                                                    style={{ backgroundColor: Theme || '#EC4899', color: 'white' }}
+                                                    className="px-6 py-3 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 transition-all duration-300 text-sm lg:text-base"
                                                     onClick={() => {
                                                         // Add navigation logic here later
                                                         console.log('Explore button clicked');
@@ -253,7 +252,7 @@ const Dashboard = () => {
                 <div className="absolute bottom-8 right-4 sm:right-6 md:right-8 z-20 flex space-x-3 sm:space-x-4">
                     <button 
                         ref={prevRef}
-                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
+                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-100 transition-all duration-200 border border-gray-300 hover:scale-110 shadow-lg"
                     >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -262,7 +261,7 @@ const Dashboard = () => {
                     
                     <button 
                         ref={nextRef}
-                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-30 hover:scale-110"
+                        className="w-10 h-10 sm:w-12 sm:h-12 bg-white bg-opacity-80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-100 transition-all duration-200 border border-gray-300 hover:scale-110 shadow-lg"
                     >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -275,7 +274,7 @@ const Dashboard = () => {
                     {mainItems.map((_, index) => (
                         <div 
                             key={index}
-                            className="w-2 h-2 bg-white bg-opacity-50 rounded-full hover:bg-opacity-100 transition-all duration-300"
+                            className="w-2 h-2 bg-gray-600 bg-opacity-50 rounded-full hover:bg-opacity-100 transition-all duration-300"
                         ></div>
                     ))}
                 </div>
